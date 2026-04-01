@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop All Products — SugarBomb Group</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/logos/LOGO SUGAR BOMB RED.png" type="image/png">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logos/LOGO SUGAR BOMB WHITE.png" alt="SugarBomb" class="logo-light">
+        <img src="assets/logos/LOGO SUGAR BOMB RED.png" alt="SugarBomb" class="logo-dark">
+      </a>
+      <div class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="about.html" class="nav__link">About Us</a>
+        <a href="expertise.html" class="nav__link">Our Expertise</a>
+        <a href="brands.html" class="nav__link">Our Brands</a>
+        <a href="shop.html" class="nav__link active">Shop</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </div>
+      <div class="nav__actions">
+        <span class="nav__search">&#128269;</span>
+        <a href="cart.html" class="nav__cart">&#128722;<span class="nav__cart-count">0</span></a>
+        <div class="nav__hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </nav>
+  <div class="nav__mobile">
+    <span class="nav__mobile-close">&times;</span>
+    <a href="index.html">Home</a><a href="about.html">About Us</a><a href="expertise.html">Our Expertise</a>
+    <a href="brands.html">Our Brands</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a><a href="cart.html">Cart</a>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div style="padding-top: var(--nav-height);">
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb__separator">›</span>
+        <span>Shop</span>
+      </div>
+
+      <!-- Page Header -->
+      <div class="flex-between" style="margin-bottom: var(--space-md);">
+        <div>
+          <h1 style="font-size: 2rem;">All Products</h1>
+          <p class="text-muted text-sm">Showing 9 of 250+ products</p>
+        </div>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <div class="filter-bar__filters">
+          <span class="filter-pill active">All</span>
+          <span class="filter-pill">Body Perfumes</span>
+          <span class="filter-pill">SB Parfum</span>
+          <span class="filter-pill">Secretscent</span>
+          <span class="filter-pill">Blast Sports</span>
+          <span class="filter-pill">Home &amp; Car</span>
+        </div>
+        <div class="filter-bar__sort">
+          <span>Sort by:</span>
+          <select>
+            <option>Featured</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+            <option>Newest</option>
+            <option>Bestselling</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="grid grid-3" style="margin-bottom: var(--space-2xl);">
+
+        <!-- Product 1 -->
+        <a href="product.html" class="product-card animate-on-scroll delay-1">
+          <div class="product-card__image">
+            <img src="assets/visuals/SB VISUAL 2.png" alt="Hush Lush">
+            <span class="product-card__badge">Bestseller</span>
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Luscious Collection</p>
+            <h3 class="product-card__name">Hush Lush</h3>
+            <p class="product-card__notes">Floral · Citrus · Musk</p>
+            <p class="product-card__price">RM 45.90</p>
+            <span class="product-card__cta">Shop Now →</span>
+          </div>
+        </a>
+
+        <!-- Product 2 -->
+        <a href="product.html" class="product-card animate-on-scroll delay-2">
+          <div class="product-card__image">
+            <img src="assets/visuals/SB VISUAL 2.png" alt="Velvet Rose">
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Luscious Collection</p>
+            <h3 class="product-card__name">Velvet Rose</h3>
+            <p class="product-card__notes">Rose · Amber · Vanilla</p>
+            <p class="product-card__price">RM 45.90</p>
+            <span class="product-card__cta">Shop Now →</span>
+          </div>
+        </a>
+
+        <!-- Product 3 -->
+        <a href="product.html" class="product-card animate-on-scroll delay-3">
+          <div class="product-card__image">
+            <img src="assets/visuals/SB VISUAL 2.png" alt="Midnight Oud">
+            <span class="product-card__badge badge--black">New</span>
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Eternal Collection</p>
+            <h3 class="product-card__name">Midnight Oud</h3>
+            <p class="product-card__notes">Oud · Saffron · Leather</p>
+            <p class="product-card__price">RM 59.90</p>
+            <span class="product-card__cta">Shop Now →</span>
+          </div>
+        </a>
+
+        <!-- Product 4 -->
+        <a href="product.html" class="product-card animate-on-scroll delay-1">
+          <div class="product-card__image">
+            <img src="assets/visuals/SB VISUAL 2.png" alt="Ocean Breeze">
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Blast Sports</p>
+            <h3 class="product-card__name">Ocean Breeze</h3>
+            <p class="product-card__notes">Aquatic · Citrus · Wood</p>
+            <p class="product-card__price">RM 39.90</p>
+            <span class="product-card__cta">Shop Now →</span>
+          </div>
+        </a>
+
+        <!-- Product 5 -->
+        <a href="product.html" class="product-card animate-on-scroll delay-2">
+          <div class="product-card__image">
+            <img src="assets/visuals/SB VISUAL 2.png" alt="Sweet Cherry">
+            <span class="product-card__badge">Bestseller</span>
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">SB Parfum</p>
+            <h3 class="product-card__name">Sweet Cherry</h3>
+            <p class="product-card__notes">Cherry · Almond · Tonka</p>
+            <p class="product-card__price">RM 69.90</p>
+            <span class="product-card__cta">Shop Now →</span>
+          </div>
+        </a>
+
+        <!-- Product 6 -->
+        <a href="product.html" class="product-card animate-on-scroll delay-3">
+          <div class="product-card__image">
+            <img src="assets/visuals/SB VISUAL 2.png" alt="Golden Dusk">
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Eternal Collection</p>
+            <h3 class="product-card__name">Golden Dusk</h3>
+            <p class="product-card__notes">Amber · Incense · Patchouli</p>
+            <p class="product-card__price">RM 59.90</p>
+            <span class="product-card__cta">Shop Now →</span>
+          </div>
+        </a>
+
+        <!-- Product 7 -->
+        <a href="product.html" class="product-card animate-on-scroll delay-1">
+          <div class="product-card__image">
+            <img src="assets/visuals/SB VISUAL 2.png" alt="Tropical Kiss">
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Luscious Collection</p>
+            <h3 class="product-card__name">Tropical Kiss</h3>
+            <p class="product-card__notes">Coconut · Jasmine · Sandalwood</p>
+            <p class="product-card__price">RM 45.90</p>
+            <span class="product-card__cta">Shop Now →</span>
+          </div>
+        </a>
+
+        <!-- Product 8 -->
+        <a href="product.html" class="product-card animate-on-scroll delay-2">
+          <div class="product-card__image">
+            <img src="assets/visuals/SB VISUAL 5.png" alt="Fresh Linen">
+            <span class="product-card__badge badge--black">Home</span>
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">SB Freshener</p>
+            <h3 class="product-card__name">Fresh Linen</h3>
+            <p class="product-card__notes">Cotton · Clean · Aqua</p>
+            <p class="product-card__price">RM 19.90</p>
+            <span class="product-card__cta">Shop Now →</span>
+          </div>
+        </a>
+
+        <!-- Product 9 -->
+        <a href="product.html" class="product-card animate-on-scroll delay-3">
+          <div class="product-card__image">
+            <img src="assets/visuals/SB VISUAL 2.png" alt="Dark Phantom">
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Secretscent</p>
+            <h3 class="product-card__name">Dark Phantom</h3>
+            <p class="product-card__notes">Leather · Tobacco · Oud</p>
+            <p class="product-card__price">RM 55.90</p>
+            <span class="product-card__cta">Shop Now →</span>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <span class="pagination__btn">‹</span>
+        <span class="pagination__btn active">1</span>
+        <span class="pagination__btn">2</span>
+        <span class="pagination__btn">3</span>
+        <span class="pagination__btn">4</span>
+        <span class="pagination__btn">…</span>
+        <span class="pagination__btn">12</span>
+        <span class="pagination__btn">›</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo"><img src="assets/logos/LOGO SUGAR BOMB WHITE.png" alt="SugarBomb"></div>
+          <p class="footer__brand-text">At SugarBomb, we do not just create scents; we create experiences that linger. Founded in 2015, we are Malaysia's leading fragrance ecosystem.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Collections</h4>
+          <a href="shop.html" class="footer__link">Luscious</a><a href="shop.html" class="footer__link">Eternal</a>
+          <a href="shop.html" class="footer__link">Blast Sports</a><a href="shop.html" class="footer__link">Home &amp; Car</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Company</h4>
+          <a href="about.html" class="footer__link">Our Story</a><a href="expertise.html" class="footer__link">Expertise</a>
+          <a href="brands.html" class="footer__link">Our Brands</a><a href="contact.html" class="footer__link">Contact</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Connect</h4>
+          <a href="#" class="footer__link">Instagram</a><a href="#" class="footer__link">TikTok</a>
+          <a href="#" class="footer__link">Facebook</a><a href="#" class="footer__link">YouTube</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 SugarBomb Group. All rights reserved.</p>
+        <div class="footer__certs"><span class="footer__cert">GMP Certified</span><span class="footer__cert">Halal Certified</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Filter pill toggle
+    document.querySelectorAll('.filter-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

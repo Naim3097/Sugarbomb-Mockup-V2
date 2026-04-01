@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart — SugarBomb Group</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/logos/LOGO SUGAR BOMB RED.png" type="image/png">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logos/LOGO SUGAR BOMB WHITE.png" alt="SugarBomb" class="logo-light">
+        <img src="assets/logos/LOGO SUGAR BOMB RED.png" alt="SugarBomb" class="logo-dark">
+      </a>
+      <div class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="about.html" class="nav__link">About Us</a>
+        <a href="expertise.html" class="nav__link">Our Expertise</a>
+        <a href="brands.html" class="nav__link">Our Brands</a>
+        <a href="shop.html" class="nav__link">Shop</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </div>
+      <div class="nav__actions">
+        <span class="nav__search">&#128269;</span>
+        <a href="cart.html" class="nav__cart">&#128722;<span class="nav__cart-count">0</span></a>
+        <div class="nav__hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </nav>
+  <div class="nav__mobile">
+    <span class="nav__mobile-close">&times;</span>
+    <a href="index.html">Home</a><a href="about.html">About Us</a><a href="expertise.html">Our Expertise</a>
+    <a href="brands.html">Our Brands</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a><a href="cart.html">Cart</a>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div style="padding-top: var(--nav-height);">
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb__separator">›</span>
+        <span>Cart</span>
+      </div>
+
+      <h1 style="font-size: 2rem; margin-bottom: var(--space-xl);" id="cartTitle">Your Cart</h1>
+
+      <div class="grid" style="grid-template-columns: 1fr 380px; gap: var(--space-2xl); align-items: start;" id="cartLayout">
+        <!-- Cart Items -->
+        <div>
+          <!-- Demo items (will also be populated by JS if localStorage has items) -->
+          <table class="cart-table" id="cartTable">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Size</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Subtotal</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="cartBody">
+              <!-- Cart item 1 -->
+              <tr>
+                <td>
+                  <div class="cart-item">
+                    <img src="assets/visuals/SB VISUAL 2.png" alt="Hush Lush" class="cart-item__image">
+                    <div>
+                      <div class="cart-item__name">Hush Lush</div>
+                      <div class="cart-item__variant">Luscious Collection</div>
+                    </div>
+                  </div>
+                </td>
+                <td>50ml</td>
+                <td>RM 45.90</td>
+                <td>
+                  <div class="qty-control">
+                    <span class="qty-control__btn qty-minus">−</span>
+                    <span class="qty-control__value">2</span>
+                    <span class="qty-control__btn qty-plus">+</span>
+                  </div>
+                </td>
+                <td style="font-weight: 600;">RM 91.80</td>
+                <td><span class="cart-remove">✕ Remove</span></td>
+              </tr>
+              <!-- Cart item 2 -->
+              <tr>
+                <td>
+                  <div class="cart-item">
+                    <img src="assets/visuals/SB VISUAL 2.png" alt="Midnight Oud" class="cart-item__image">
+                    <div>
+                      <div class="cart-item__name">Midnight Oud</div>
+                      <div class="cart-item__variant">Eternal Collection</div>
+                    </div>
+                  </div>
+                </td>
+                <td>100ml</td>
+                <td>RM 99.90</td>
+                <td>
+                  <div class="qty-control">
+                    <span class="qty-control__btn qty-minus">−</span>
+                    <span class="qty-control__value">1</span>
+                    <span class="qty-control__btn qty-plus">+</span>
+                  </div>
+                </td>
+                <td style="font-weight: 600;">RM 99.90</td>
+                <td><span class="cart-remove">✕ Remove</span></td>
+              </tr>
+              <!-- Cart item 3 -->
+              <tr>
+                <td>
+                  <div class="cart-item">
+                    <img src="assets/visuals/SB VISUAL 2.png" alt="Sweet Cherry" class="cart-item__image">
+                    <div>
+                      <div class="cart-item__name">Sweet Cherry</div>
+                      <div class="cart-item__variant">SB Parfum</div>
+                    </div>
+                  </div>
+                </td>
+                <td>50ml</td>
+                <td>RM 69.90</td>
+                <td>
+                  <div class="qty-control">
+                    <span class="qty-control__btn qty-minus">−</span>
+                    <span class="qty-control__value">1</span>
+                    <span class="qty-control__btn qty-plus">+</span>
+                  </div>
+                </td>
+                <td style="font-weight: 600;">RM 69.90</td>
+                <td><span class="cart-remove">✕ Remove</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Continue Shopping -->
+          <div style="margin-top: var(--space-xl);">
+            <a href="shop.html" class="btn btn--ghost btn--md">← Continue Shopping</a>
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div>
+          <div class="order-summary">
+            <h3 style="margin-bottom: var(--space-lg);">Order Summary</h3>
+            <div class="order-summary__row">
+              <span>Subtotal (4 items)</span>
+              <span>RM 261.60</span>
+            </div>
+            <div class="order-summary__row">
+              <span>Shipping</span>
+              <span style="color: var(--color-success);">FREE</span>
+            </div>
+            <div class="order-summary__row">
+              <span>Estimated Tax (6% SST)</span>
+              <span>RM 15.70</span>
+            </div>
+            <div class="order-summary__row order-summary__row--total">
+              <span>Total</span>
+              <span style="color: var(--color-red);">RM 277.30</span>
+            </div>
+            <button class="btn btn--primary btn--lg btn--full" style="margin-top: var(--space-lg);" onclick="alert('Proceeding to checkout... (Mockup)')">Proceed to Checkout</button>
+          </div>
+
+          <!-- Promo Code -->
+          <div style="margin-top: var(--space-lg);">
+            <p class="text-sm" style="font-weight: 600; margin-bottom: var(--space-sm);">Promo Code</p>
+            <div class="promo-code">
+              <input type="text" placeholder="Enter promo code" class="form-input" style="height: 44px;">
+              <button class="btn btn--secondary btn--md">Apply</button>
+            </div>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="trust-badges" style="margin-top: var(--space-xl); flex-wrap: wrap; justify-content: flex-start; gap: var(--space-lg);">
+            <div class="trust-badge">
+              <div class="trust-badge__icon">🏭</div>
+              <div>GMP Certified</div>
+            </div>
+            <div class="trust-badge">
+              <div class="trust-badge__icon">☪️</div>
+              <div>Halal Certified</div>
+            </div>
+            <div class="trust-badge">
+              <div class="trust-badge__icon">🔒</div>
+              <div>Secure Payment</div>
+            </div>
+            <div class="trust-badge">
+              <div class="trust-badge__icon">🚚</div>
+              <div>Free Shipping</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cross-sell -->
+      <div style="margin: var(--space-3xl) 0;">
+        <div class="divider-band" style="margin-bottom: var(--space-xl); border-radius: var(--radius-md);">
+          <h3 class="divider-band__title">You Might Also Like</h3>
+          <p class="divider-band__subtitle">Complete your fragrance collection</p>
+        </div>
+        <div class="grid grid-4">
+          <a href="product.html" class="product-card">
+            <div class="product-card__image">
+              <img src="assets/visuals/SB VISUAL 2.png" alt="Velvet Rose">
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Luscious</p>
+              <h3 class="product-card__name">Velvet Rose</h3>
+              <p class="product-card__price">RM 45.90</p>
+              <span class="product-card__cta">Add to Cart →</span>
+            </div>
+          </a>
+          <a href="product.html" class="product-card">
+            <div class="product-card__image">
+              <img src="assets/visuals/SB VISUAL 2.png" alt="Ocean Breeze">
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Blast Sports</p>
+              <h3 class="product-card__name">Ocean Breeze</h3>
+              <p class="product-card__price">RM 39.90</p>
+              <span class="product-card__cta">Add to Cart →</span>
+            </div>
+          </a>
+          <a href="product.html" class="product-card">
+            <div class="product-card__image">
+              <img src="assets/visuals/SB VISUAL 2.png" alt="Golden Dusk">
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Eternal</p>
+              <h3 class="product-card__name">Golden Dusk</h3>
+              <p class="product-card__price">RM 59.90</p>
+              <span class="product-card__cta">Add to Cart →</span>
+            </div>
+          </a>
+          <a href="product.html" class="product-card">
+            <div class="product-card__image">
+              <img src="assets/visuals/SB VISUAL 5.png" alt="Fresh Linen">
+              <span class="product-card__badge badge--black">Home</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">SB Freshener</p>
+              <h3 class="product-card__name">Fresh Linen</h3>
+              <p class="product-card__price">RM 19.90</p>
+              <span class="product-card__cta">Add to Cart →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo"><img src="assets/logos/LOGO SUGAR BOMB WHITE.png" alt="SugarBomb"></div>
+          <p class="footer__brand-text">At SugarBomb, we do not just create scents; we create experiences that linger. Founded in 2015, we are Malaysia's leading fragrance ecosystem.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Collections</h4>
+          <a href="shop.html" class="footer__link">Luscious</a><a href="shop.html" class="footer__link">Eternal</a>
+          <a href="shop.html" class="footer__link">Blast Sports</a><a href="shop.html" class="footer__link">Home &amp; Car</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Company</h4>
+          <a href="about.html" class="footer__link">Our Story</a><a href="expertise.html" class="footer__link">Expertise</a>
+          <a href="brands.html" class="footer__link">Our Brands</a><a href="contact.html" class="footer__link">Contact</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Connect</h4>
+          <a href="#" class="footer__link">Instagram</a><a href="#" class="footer__link">TikTok</a>
+          <a href="#" class="footer__link">Facebook</a><a href="#" class="footer__link">YouTube</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 SugarBomb Group. All rights reserved.</p>
+        <div class="footer__certs"><span class="footer__cert">GMP Certified</span><span class="footer__cert">Halal Certified</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Remove item handlers
+    document.querySelectorAll('.cart-remove').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const row = this.closest('tr');
+        row.style.opacity = '0';
+        row.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => row.remove(), 300);
+      });
+    });
+  </script>
+</body>
+</html>

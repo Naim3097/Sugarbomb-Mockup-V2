@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hush Lush — SugarBomb Group</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/logos/LOGO SUGAR BOMB RED.png" type="image/png">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logos/LOGO SUGAR BOMB WHITE.png" alt="SugarBomb" class="logo-light">
+        <img src="assets/logos/LOGO SUGAR BOMB RED.png" alt="SugarBomb" class="logo-dark">
+      </a>
+      <div class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="about.html" class="nav__link">About Us</a>
+        <a href="expertise.html" class="nav__link">Our Expertise</a>
+        <a href="brands.html" class="nav__link">Our Brands</a>
+        <a href="shop.html" class="nav__link active">Shop</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </div>
+      <div class="nav__actions">
+        <span class="nav__search">&#128269;</span>
+        <a href="cart.html" class="nav__cart">&#128722;<span class="nav__cart-count">0</span></a>
+        <div class="nav__hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </nav>
+  <div class="nav__mobile">
+    <span class="nav__mobile-close">&times;</span>
+    <a href="index.html">Home</a><a href="about.html">About Us</a><a href="expertise.html">Our Expertise</a>
+    <a href="brands.html">Our Brands</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a><a href="cart.html">Cart</a>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div style="padding-top: var(--nav-height);">
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb__separator">›</span>
+        <a href="shop.html">Shop</a>
+        <span class="breadcrumb__separator">›</span>
+        <a href="shop.html">Luscious</a>
+        <span class="breadcrumb__separator">›</span>
+        <span>Hush Lush</span>
+      </div>
+
+      <!-- PDP Layout -->
+      <div class="pdp">
+        <!-- Gallery -->
+        <div class="pdp__gallery">
+          <div class="pdp__main-image">
+            <img src="assets/visuals/SB VISUAL 2.png" alt="Hush Lush — Main" id="mainProductImage">
+          </div>
+          <div class="pdp__thumbs">
+            <div class="pdp__thumb active">
+              <img src="assets/visuals/SB VISUAL 2.png" alt="View 1" data-full="assets/visuals/SB VISUAL 2.png">
+            </div>
+            <div class="pdp__thumb">
+              <img src="assets/visuals/SB VISUAL 1.png" alt="View 2" data-full="assets/visuals/SB VISUAL 1.png">
+            </div>
+            <div class="pdp__thumb">
+              <img src="assets/visuals/SB VISUAL 5.png" alt="View 3" data-full="assets/visuals/SB VISUAL 5.png">
+            </div>
+            <div class="pdp__thumb">
+              <img src="assets/visuals/SB VISUAL 3.png" alt="View 4" data-full="assets/visuals/SB VISUAL 3.png">
+            </div>
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="pdp__info">
+          <p class="pdp__collection">Luscious Collection</p>
+          <h1 class="pdp__name">Hush Lush</h1>
+
+          <div class="pdp__rating">
+            <span class="pdp__stars">★★★★★</span>
+            <span class="pdp__review-count">(128 reviews)</span>
+          </div>
+
+          <p class="pdp__price">RM 45.90</p>
+
+          <p class="text-muted" style="margin-bottom: var(--space-md); line-height: 1.7;">
+            Our most-loved fragrance that captures the essence of tropical elegance. Long-lasting for up to 24 hours, designed for Malaysia's humid climate. Muslim-friendly formulation.
+          </p>
+
+          <!-- Scent Notes -->
+          <p class="text-sm text-muted" style="margin-bottom: var(--space-sm); font-weight: 600;">Scent Notes</p>
+          <div class="pdp__notes">
+            <span class="pdp__note-tag">Floral</span>
+            <span class="pdp__note-tag">Citrus</span>
+            <span class="pdp__note-tag">Musk</span>
+            <span class="pdp__note-tag">Vanilla</span>
+          </div>
+
+          <!-- Size -->
+          <div class="pdp__sizes">
+            <p class="text-sm" style="font-weight: 600;">Size</p>
+            <div class="pdp__size-options">
+              <span class="pdp__size-btn active" onclick="selectSize(this)">50ml</span>
+              <span class="pdp__size-btn" onclick="selectSize(this)">100ml — RM 79.90</span>
+            </div>
+          </div>
+
+          <!-- Quantity -->
+          <div style="margin-bottom: var(--space-md);">
+            <p class="text-sm" style="font-weight: 600; margin-bottom: var(--space-sm);">Quantity</p>
+            <div class="qty-control" style="display: inline-flex;">
+              <span class="qty-control__btn qty-minus">−</span>
+              <span class="qty-control__value">1</span>
+              <span class="qty-control__btn qty-plus">+</span>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="pdp__actions">
+            <button class="btn btn--primary btn--lg" style="flex: 1;" onclick="addProductToCart()">Add to Cart</button>
+            <span class="pdp__wishlist">♡</span>
+          </div>
+
+          <!-- Trust -->
+          <div style="margin-top: var(--space-xl); display: flex; gap: var(--space-lg); font-size: 0.8125rem; color: var(--color-text-muted);">
+            <span>✓ GMP Certified</span>
+            <span>✓ Halal Certified</span>
+            <span>✓ 8–24hr Lasting</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div style="margin-top: var(--space-2xl); margin-bottom: var(--space-3xl);">
+        <div class="tabs" data-tabs>
+          <span class="tab active" data-tab="description">Description</span>
+          <span class="tab" data-tab="scent">Scent Profile</span>
+          <span class="tab" data-tab="reviews">Reviews (128)</span>
+        </div>
+
+        <!-- Description -->
+        <div class="tab-content active" data-tab-content="description">
+          <div style="max-width: 700px; padding: var(--space-xl) 0;">
+            <p style="line-height: 1.8; color: var(--color-text-muted); margin-bottom: var(--space-lg);">
+              Hush Lush is SugarBomb's signature bestseller from the Luscious Collection. Inspired by tropical Malaysian botanicals, this fragrance opens with a burst of fresh citrus and gradually unfolds into a heart of lush florals, settling into a warm, musky base that lingers for up to 24 hours.
+            </p>
+            <p style="line-height: 1.8; color: var(--color-text-muted); margin-bottom: var(--space-lg);">
+              Specifically formulated for tropical humid climates, Hush Lush is designed to perform in Malaysia's weather while maintaining its scent integrity throughout the day. Our Muslim-friendly formulation uses only halal-certified ingredients, manufactured in our GMP-certified facility in Klang, Selangor.
+            </p>
+            <h3 style="margin-bottom: var(--space-md);">Key Features</h3>
+            <ul style="line-height: 2; color: var(--color-text-muted); padding-left: var(--space-lg); list-style: disc;">
+              <li>Long-lasting: 8–24 hours wear time</li>
+              <li>Climate-adapted for tropical humidity</li>
+              <li>Halal & GMP certified</li>
+              <li>Muslim-friendly formulation</li>
+              <li>Available in 50ml and 100ml</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Scent Profile -->
+        <div class="tab-content" data-tab-content="scent">
+          <div style="padding: var(--space-xl) 0;">
+            <div class="scent-profile">
+              <div class="scent-profile__tier">
+                <div class="scent-profile__tier-name">Top Notes</div>
+                <p class="scent-profile__note">Bergamot</p>
+                <p class="scent-profile__note">Lemon Zest</p>
+                <p class="scent-profile__note">Pink Pepper</p>
+              </div>
+              <div class="scent-profile__tier">
+                <div class="scent-profile__tier-name">Heart Notes</div>
+                <p class="scent-profile__note">Jasmine</p>
+                <p class="scent-profile__note">Rose</p>
+                <p class="scent-profile__note">Ylang-Ylang</p>
+              </div>
+              <div class="scent-profile__tier">
+                <div class="scent-profile__tier-name">Base Notes</div>
+                <p class="scent-profile__note">White Musk</p>
+                <p class="scent-profile__note">Vanilla</p>
+                <p class="scent-profile__note">Sandalwood</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reviews -->
+        <div class="tab-content" data-tab-content="reviews">
+          <div style="padding: var(--space-xl) 0;">
+
+            <!-- Rating Summary -->
+            <div class="grid grid-2" style="max-width: 700px; margin-bottom: var(--space-xl); gap: var(--space-2xl);">
+              <div class="text-center">
+                <div style="font-size: 3.5rem; font-weight: 700; color: var(--color-red);">4.8</div>
+                <div class="pdp__stars" style="font-size: 1.25rem; margin-bottom: var(--space-xs);">★★★★★</div>
+                <p class="text-sm text-muted">Based on 128 reviews</p>
+              </div>
+              <div class="rating-bars">
+                <div class="rating-bar">
+                  <span class="rating-bar__label">5 ★</span>
+                  <div class="rating-bar__track"><div class="rating-bar__fill" style="width: 82%;"></div></div>
+                  <span class="rating-bar__count">105</span>
+                </div>
+                <div class="rating-bar">
+                  <span class="rating-bar__label">4 ★</span>
+                  <div class="rating-bar__track"><div class="rating-bar__fill" style="width: 12%;"></div></div>
+                  <span class="rating-bar__count">15</span>
+                </div>
+                <div class="rating-bar">
+                  <span class="rating-bar__label">3 ★</span>
+                  <div class="rating-bar__track"><div class="rating-bar__fill" style="width: 4%;"></div></div>
+                  <span class="rating-bar__count">5</span>
+                </div>
+                <div class="rating-bar">
+                  <span class="rating-bar__label">2 ★</span>
+                  <div class="rating-bar__track"><div class="rating-bar__fill" style="width: 1.5%;"></div></div>
+                  <span class="rating-bar__count">2</span>
+                </div>
+                <div class="rating-bar">
+                  <span class="rating-bar__label">1 ★</span>
+                  <div class="rating-bar__track"><div class="rating-bar__fill" style="width: 0.8%;"></div></div>
+                  <span class="rating-bar__count">1</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Individual Reviews -->
+            <div class="review">
+              <div class="review__header">
+                <div class="review__avatar">A</div>
+                <div>
+                  <div class="review__author">Aisyah M.</div>
+                  <div class="review__date">March 15, 2026</div>
+                </div>
+              </div>
+              <div class="review__stars">★★★★★</div>
+              <p class="review__text">My absolute favourite! The scent lasts from morning until I come back from work. Perfect for our Malaysian weather. I've been repurchasing this for 2 years now.</p>
+            </div>
+
+            <div class="review">
+              <div class="review__header">
+                <div class="review__avatar">N</div>
+                <div>
+                  <div class="review__author">Nurul H.</div>
+                  <div class="review__date">February 28, 2026</div>
+                </div>
+              </div>
+              <div class="review__stars">★★★★★</div>
+              <p class="review__text">Smells like designer perfume but at such an affordable price! Everyone at my office keeps asking what perfume I'm wearing. Love the floral scent.</p>
+            </div>
+
+            <div class="review">
+              <div class="review__header">
+                <div class="review__avatar">R</div>
+                <div>
+                  <div class="review__author">Razif K.</div>
+                  <div class="review__date">February 10, 2026</div>
+                </div>
+              </div>
+              <div class="review__stars">★★★★☆</div>
+              <p class="review__text">Bought this for my wife and she loves it. Great packaging too. Only giving 4 stars because I wish the 100ml was a bit cheaper, but quality is excellent.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Products -->
+      <div style="margin-bottom: var(--space-3xl);">
+        <h2 class="display-heading" style="margin-bottom: var(--space-xl);">You May Also Like</h2>
+        <div class="grid grid-4">
+          <a href="product.html" class="product-card">
+            <div class="product-card__image">
+              <img src="assets/visuals/SB VISUAL 2.png" alt="Velvet Rose">
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Luscious</p>
+              <h3 class="product-card__name">Velvet Rose</h3>
+              <p class="product-card__price">RM 45.90</p>
+              <span class="product-card__cta">Shop Now →</span>
+            </div>
+          </a>
+          <a href="product.html" class="product-card">
+            <div class="product-card__image">
+              <img src="assets/visuals/SB VISUAL 2.png" alt="Midnight Oud">
+              <span class="product-card__badge badge--black">New</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Eternal</p>
+              <h3 class="product-card__name">Midnight Oud</h3>
+              <p class="product-card__price">RM 59.90</p>
+              <span class="product-card__cta">Shop Now →</span>
+            </div>
+          </a>
+          <a href="product.html" class="product-card">
+            <div class="product-card__image">
+              <img src="assets/visuals/SB VISUAL 2.png" alt="Sweet Cherry">
+              <span class="product-card__badge">Bestseller</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">SB Parfum</p>
+              <h3 class="product-card__name">Sweet Cherry</h3>
+              <p class="product-card__price">RM 69.90</p>
+              <span class="product-card__cta">Shop Now →</span>
+            </div>
+          </a>
+          <a href="product.html" class="product-card">
+            <div class="product-card__image">
+              <img src="assets/visuals/SB VISUAL 2.png" alt="Tropical Kiss">
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Luscious</p>
+              <h3 class="product-card__name">Tropical Kiss</h3>
+              <p class="product-card__price">RM 45.90</p>
+              <span class="product-card__cta">Shop Now →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo"><img src="assets/logos/LOGO SUGAR BOMB WHITE.png" alt="SugarBomb"></div>
+          <p class="footer__brand-text">At SugarBomb, we do not just create scents; we create experiences that linger. Founded in 2015, we are Malaysia's leading fragrance ecosystem.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Collections</h4>
+          <a href="shop.html" class="footer__link">Luscious</a><a href="shop.html" class="footer__link">Eternal</a>
+          <a href="shop.html" class="footer__link">Blast Sports</a><a href="shop.html" class="footer__link">Home &amp; Car</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Company</h4>
+          <a href="about.html" class="footer__link">Our Story</a><a href="expertise.html" class="footer__link">Expertise</a>
+          <a href="brands.html" class="footer__link">Our Brands</a><a href="contact.html" class="footer__link">Contact</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Connect</h4>
+          <a href="#" class="footer__link">Instagram</a><a href="#" class="footer__link">TikTok</a>
+          <a href="#" class="footer__link">Facebook</a><a href="#" class="footer__link">YouTube</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 SugarBomb Group. All rights reserved.</p>
+        <div class="footer__certs"><span class="footer__cert">GMP Certified</span><span class="footer__cert">Halal Certified</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function selectSize(el) {
+      document.querySelectorAll('.pdp__size-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    function addProductToCart() {
+      const qty = parseInt(document.querySelector('.qty-control__value').textContent);
+      const size = document.querySelector('.pdp__size-btn.active').textContent.trim();
+      addToCart({
+        id: 'hush-lush',
+        name: 'Hush Lush',
+        collection: 'Luscious Collection',
+        size: size.includes('100') ? '100ml' : '50ml',
+        price: size.includes('100') ? 79.90 : 45.90,
+        image: 'assets/visuals/SB VISUAL 2.png'
+      });
+      // Add qty-1 more times
+      const cart = getCart();
+      const item = cart.find(i => i.id === 'hush-lush' && i.size === (size.includes('100') ? '100ml' : '50ml'));
+      if (item && qty > 1) {
+        item.qty = qty;
+        saveCart(cart);
+      }
+      alert('Added to cart! (' + qty + ' × ' + (size.includes('100') ? '100ml' : '50ml') + ')');
+    }
+  </script>
+</body>
+</html>

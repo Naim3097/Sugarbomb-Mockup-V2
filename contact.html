@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — SugarBomb Group</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/logos/LOGO SUGAR BOMB RED.png" type="image/png">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logos/LOGO SUGAR BOMB WHITE.png" alt="SugarBomb" class="logo-light">
+        <img src="assets/logos/LOGO SUGAR BOMB RED.png" alt="SugarBomb" class="logo-dark">
+      </a>
+      <div class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="about.html" class="nav__link">About Us</a>
+        <a href="expertise.html" class="nav__link">Our Expertise</a>
+        <a href="brands.html" class="nav__link">Our Brands</a>
+        <a href="shop.html" class="nav__link">Shop</a>
+        <a href="contact.html" class="nav__link active">Contact</a>
+      </div>
+      <div class="nav__actions">
+        <span class="nav__search">&#128269;</span>
+        <a href="cart.html" class="nav__cart">&#128722;<span class="nav__cart-count">0</span></a>
+        <div class="nav__hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </nav>
+  <div class="nav__mobile">
+    <span class="nav__mobile-close">&times;</span>
+    <a href="index.html">Home</a><a href="about.html">About Us</a><a href="expertise.html">Our Expertise</a>
+    <a href="brands.html">Our Brands</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a><a href="cart.html">Cart</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero hero--small">
+    <div class="hero__bg" style="background-image: url('assets/visuals/SB VISUAL 6.png');"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="hero__label">We'd Love to Hear From You</p>
+      <h1 class="hero__title display-heading">Get In Touch</h1>
+      <p class="hero__subtitle">Questions, partnerships, or just want to say hello?</p>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM + INFO -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2" style="gap: var(--space-3xl); align-items: start;">
+        <!-- Form -->
+        <div class="animate-on-scroll">
+          <h2 style="margin-bottom: var(--space-lg);">Send Us a Message</h2>
+          <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent. We will get back to you soon.');">
+            <div class="grid grid-2">
+              <div class="form-group">
+                <label class="form-label">Full Name *</label>
+                <input type="text" class="form-input" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email *</label>
+                <input type="email" class="form-input" placeholder="your@email.com" required>
+              </div>
+            </div>
+            <div class="grid grid-2">
+              <div class="form-group">
+                <label class="form-label">Phone</label>
+                <input type="tel" class="form-input" placeholder="+60 12-345 6789">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Subject *</label>
+                <select class="form-select" required>
+                  <option value="">Select a subject</option>
+                  <option>General Enquiry</option>
+                  <option>Product Information</option>
+                  <option>Distributor Partnership</option>
+                  <option>OEM / Private Label</option>
+                  <option>Membership</option>
+                  <option>Press / Media</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Message *</label>
+              <textarea class="form-textarea" placeholder="Tell us how we can help..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg">Send Message</button>
+          </form>
+        </div>
+
+        <!-- Info Cards -->
+        <div class="animate-on-scroll delay-2">
+          <h2 style="margin-bottom: var(--space-lg);">Contact Information</h2>
+          <div class="flex-col gap-lg">
+            <div class="info-card" style="text-align: left;">
+              <div class="flex gap-md" style="align-items: flex-start;">
+                <div class="info-card__icon" style="margin-bottom: 0;">📍</div>
+                <div>
+                  <h4 class="info-card__title" style="text-align: left;">Headquarters</h4>
+                  <p class="info-card__text" style="text-align: left;">Klang, Selangor<br>Malaysia</p>
+                </div>
+              </div>
+            </div>
+            <div class="info-card" style="text-align: left;">
+              <div class="flex gap-md" style="align-items: flex-start;">
+                <div class="info-card__icon" style="margin-bottom: 0;">📞</div>
+                <div>
+                  <h4 class="info-card__title" style="text-align: left;">Phone</h4>
+                  <p class="info-card__text" style="text-align: left;">+603-XXXX XXXX<br>Mon – Fri, 9AM – 6PM (MYT)</p>
+                </div>
+              </div>
+            </div>
+            <div class="info-card" style="text-align: left;">
+              <div class="flex gap-md" style="align-items: flex-start;">
+                <div class="info-card__icon" style="margin-bottom: 0;">✉️</div>
+                <div>
+                  <h4 class="info-card__title" style="text-align: left;">Email</h4>
+                  <p class="info-card__text" style="text-align: left;">info@sugarbombgroup.com<br>b2b@sugarbombgroup.com</p>
+                </div>
+              </div>
+            </div>
+            <div class="info-card" style="text-align: left;">
+              <div class="flex gap-md" style="align-items: flex-start;">
+                <div class="info-card__icon" style="margin-bottom: 0;">🌐</div>
+                <div>
+                  <h4 class="info-card__title" style="text-align: left;">Social</h4>
+                  <div style="display: flex; gap: var(--space-sm); margin-top: var(--space-sm);">
+                    <a href="#" class="btn btn--secondary btn--sm">Instagram</a>
+                    <a href="#" class="btn btn--secondary btn--sm">TikTok</a>
+                    <a href="#" class="btn btn--secondary btn--sm">Facebook</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP PLACEHOLDER -->
+  <section class="section section--gray">
+    <div class="container">
+      <div class="animate-on-scroll" style="background: var(--color-white); border-radius: var(--radius-md); overflow: hidden; height: 400px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px var(--color-shadow);">
+        <div class="text-center">
+          <p style="font-size: 3rem; margin-bottom: var(--space-md);">📍</p>
+          <h3>SugarBomb Group HQ</h3>
+          <p class="text-muted">Klang, Selangor, Malaysia</p>
+          <p class="text-sm text-muted" style="margin-top: var(--space-sm);">[Map placeholder — Klang, Selangor]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width: 800px;">
+      <div class="text-center" style="margin-bottom: var(--space-2xl);">
+        <h2 class="display-heading animate-on-scroll">Frequently Asked Questions</h2>
+      </div>
+      <div class="accordion">
+        <div class="accordion__item open">
+          <div class="accordion__header">
+            <span>Where are SugarBomb products manufactured?</span>
+            <span class="accordion__icon">+</span>
+          </div>
+          <div class="accordion__body">
+            <div class="accordion__content">All SugarBomb products are manufactured in our 20,000 sqm GMP and Halal certified facility in Klang, Selangor, Malaysia. We control every step from R&D to packaging.</div>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <div class="accordion__header">
+            <span>How long do SugarBomb fragrances last?</span>
+            <span class="accordion__icon">+</span>
+          </div>
+          <div class="accordion__body">
+            <div class="accordion__content">Our fragrances are formulated to last approximately 8–24 hours depending on the product line and concentration. They are specifically optimized for tropical humid climates.</div>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <div class="accordion__header">
+            <span>Are your products Halal certified?</span>
+            <span class="accordion__icon">+</span>
+          </div>
+          <div class="accordion__body">
+            <div class="accordion__content">Yes, all our manufacturing facilities and processes are Halal certified. Our formulations are Muslim-friendly and comply with Islamic standards.</div>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <div class="accordion__header">
+            <span>How can I become a SugarBomb distributor?</span>
+            <span class="accordion__icon">+</span>
+          </div>
+          <div class="accordion__body">
+            <div class="accordion__content">We welcome distributor partnerships. Please fill out the contact form above with "Distributor Partnership" as the subject, and our team will reach out with details on joining our extensive network.</div>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <div class="accordion__header">
+            <span>Do you offer OEM / private label services?</span>
+            <span class="accordion__icon">+</span>
+          </div>
+          <div class="accordion__body">
+            <div class="accordion__content">Yes! Our factory supports OEM and private label fragrance manufacturing. With 6 registered chemists and full production capabilities, we can bring your brand's fragrance vision to life. Contact our B2B team at b2b@sugarbombgroup.com.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISTRIBUTOR CTA -->
+  <section class="section section--red">
+    <div class="container text-center">
+      <div class="animate-on-scroll">
+        <p class="label" style="opacity: 0.85; margin-bottom: var(--space-md);">Partnership</p>
+        <h2 class="display-heading" style="margin-bottom: var(--space-md);">Become a Distributor</h2>
+        <p style="max-width: 600px; margin: 0 auto var(--space-xl); opacity: 0.9; font-size: 1.125rem; line-height: 1.7;">
+          Join thousands of distributors in our growing network across 6 countries. Access our 250+ scents and benefit from SugarBomb's powerful brand ecosystem.
+        </p>
+        <a href="#" class="btn btn--white btn--lg">Apply Now →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo"><img src="assets/logos/LOGO SUGAR BOMB WHITE.png" alt="SugarBomb"></div>
+          <p class="footer__brand-text">At SugarBomb, we do not just create scents; we create experiences that linger. Founded in 2015, we are Malaysia's leading fragrance ecosystem.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Collections</h4>
+          <a href="shop.html" class="footer__link">Luscious</a><a href="shop.html" class="footer__link">Eternal</a>
+          <a href="shop.html" class="footer__link">Blast Sports</a><a href="shop.html" class="footer__link">Home &amp; Car</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Company</h4>
+          <a href="about.html" class="footer__link">Our Story</a><a href="expertise.html" class="footer__link">Expertise</a>
+          <a href="brands.html" class="footer__link">Our Brands</a><a href="contact.html" class="footer__link">Contact</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Connect</h4>
+          <a href="#" class="footer__link">Instagram</a><a href="#" class="footer__link">TikTok</a>
+          <a href="#" class="footer__link">Facebook</a><a href="#" class="footer__link">YouTube</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 SugarBomb Group. All rights reserved.</p>
+        <div class="footer__certs"><span class="footer__cert">GMP Certified</span><span class="footer__cert">Halal Certified</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
