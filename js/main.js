@@ -25,6 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initButtonRipple();
   initImageReveal();
   initCountUp();
+  initRotatingWords();
+  initBrandStoryStars();
+  initBrandStoryOrbit();
+  initPopularProductsSlider();
+  initBrandsCounter();
+  initVideoStatCounters();
 });
 
 /* --- Page Load Transition --- */
@@ -373,11 +379,51 @@ function initNavHover() {
 /* --- Text Split & Reveal (word-by-word clip animation) --- */
 function initTextReveal() {
   document.querySelectorAll('[data-reveal]').forEach(el => {
-    const text = el.textContent.trim();
-    const words = text.split(/\s+/);
-    el.innerHTML = words.map((word, i) =>
-      '<span class="word-wrap"><span class="word" style="transition-delay:' + (i * 0.045) + 's">' + word + '</span></span>'
-    ).join(' ');
+    // Preserve inline child elements (like rotating-word spans)
+    const hasInlineChildren = el.querySelector('[data-words]');
+    if (hasInlineChildren) {
+      // Walk through childNodes, wrap text nodes word-by-word, keep element nodes intact
+      let wordIndex = 0;
+      const frag = document.createDocumentFragment();
+      el.childNodes.forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE) {
+          const parts = node.textContent.split(/(\s+)/);
+          parts.forEach(part => {
+            if (/^\s+$/.test(part)) {
+              frag.appendChild(document.createTextNode(part));
+            } else if (part.length > 0) {
+              const wrap = document.createElement('span');
+              wrap.className = 'word-wrap';
+              const inner = document.createElement('span');
+              inner.className = 'word';
+              inner.style.transitionDelay = (wordIndex * 0.045) + 's';
+              inner.textContent = part;
+              wrap.appendChild(inner);
+              frag.appendChild(wrap);
+              wordIndex++;
+            }
+          });
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+          const wrap = document.createElement('span');
+          wrap.className = 'word-wrap';
+          const inner = document.createElement('span');
+          inner.className = 'word';
+          inner.style.transitionDelay = (wordIndex * 0.045) + 's';
+          inner.appendChild(node.cloneNode(true));
+          wrap.appendChild(inner);
+          frag.appendChild(wrap);
+          wordIndex++;
+        }
+      });
+      el.innerHTML = '';
+      el.appendChild(frag);
+    } else {
+      const text = el.textContent.trim();
+      const words = text.split(/\s+/);
+      el.innerHTML = words.map((word, i) =>
+        '<span class="word-wrap"><span class="word" style="transition-delay:' + (i * 0.045) + 's">' + word + '</span></span>'
+      ).join(' ');
+    }
     el.classList.add('reveal-ready');
   });
 
@@ -509,4 +555,366 @@ function animateCount(el, target) {
   }
 
   requestAnimationFrame(update);
+}
+
+/* --- Rotating Hero Words --- */
+function initRotatingWords() {
+  const el = document.querySelector('[data-words]');
+  if (!el) return;
+
+  const words = el.dataset.words.split(',');
+  let index = 0;
+
+  setInterval(() => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(8px)';
+
+    setTimeout(() => {
+      index = (index + 1) % words.length;
+      el.textContent = words[index];
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, 400);
+  }, 3000);
+}
+
+/* --- Brand Story Glittery Stars --- */
+function initBrandStoryStars() {
+  const canvas = document.querySelector('.brand-story__stars');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+  const STAR_COUNT = 60;
+
+  function resize() {
+    const section = canvas.parentElement;
+    canvas.width = section.offsetWidth;
+    canvas.height = section.offsetHeight;
+  }
+
+  function createStars() {
+    stars = [];
+    for (let i = 0; i < STAR_COUNT; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 2 + 0.5,
+        speedX: (Math.random() - 0.5) * 0.15,
+        speedY: (Math.random() - 0.5) * 0.1,
+        opacity: Math.random() * 0.6 + 0.2,
+        pulseSpeed: Math.random() * 0.008 + 0.003,
+        pulseOffset: Math.random() * Math.PI * 2
+      });
+    }
+  }
+
+  function draw(time) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    stars.forEach(star => {
+      star.x += star.speedX;
+      star.y += star.speedY;
+
+      if (star.x < 0) star.x = canvas.width;
+      if (star.x > canvas.width) star.x = 0;
+      if (star.y < 0) star.y = canvas.height;
+      if (star.y > canvas.height) star.y = 0;
+
+      const pulse = Math.sin(time * star.pulseSpeed + star.pulseOffset);
+      const alpha = star.opacity + pulse * 0.25;
+      const s = star.size + pulse * 0.4;
+
+      ctx.save();
+      ctx.globalAlpha = Math.max(0.05, Math.min(alpha, 0.85));
+      ctx.fillStyle = '#ffffff';
+      ctx.shadowColor = '#ffffff';
+      ctx.shadowBlur = s * 4;
+
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, s, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.restore();
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  createStars();
+  requestAnimationFrame(draw);
+
+  window.addEventListener('resize', () => {
+    resize();
+    createStars();
+  });
+}
+
+/* --- Brand Story Orbiting Text --- */
+function initBrandStoryOrbit() {
+  const canvas = document.querySelector('.brand-story__orbit');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  const SIZE = 520;
+  canvas.width = SIZE;
+  canvas.height = SIZE;
+
+  const cx = SIZE / 2;
+  const cy = SIZE / 2;
+  const radius = 210;
+
+  // Two orbiting words
+  const words = [
+    { text: 'Sugar', angle: 0, speed: 0.012, baseSpeed: 0.012, jitter: 0, distort: 0, trail: [] },
+    { text: 'Bomb', angle: Math.PI, speed: 0.009, baseSpeed: 0.009, jitter: 0, distort: 0, trail: [] }
+  ];
+
+  const TRAIL_LENGTH = 12;
+  let time = 0;
+
+  function draw() {
+    time++;
+    ctx.clearRect(0, 0, SIZE, SIZE);
+
+    words.forEach(function(w) {
+      // Random speed variation (subtle surges)
+      if (Math.random() < 0.02) {
+        w.speed = w.baseSpeed + (Math.random() - 0.3) * 0.008;
+      }
+      w.speed += (w.baseSpeed - w.speed) * 0.01;
+
+      // Jitter offset
+      w.jitter = Math.sin(time * 0.07 + w.angle) * 3;
+      // Text distortion (skew factor)
+      w.distort = Math.sin(time * 0.04 + w.angle * 2) * 0.15;
+
+      w.angle += w.speed;
+
+      var x = cx + Math.cos(w.angle) * radius + w.jitter;
+      var y = cy + Math.sin(w.angle) * radius + w.jitter * 0.6;
+
+      // Store trail
+      w.trail.push({ x: x, y: y, age: 0 });
+      if (w.trail.length > TRAIL_LENGTH) w.trail.shift();
+
+      // Draw jitter trail
+      w.trail.forEach(function(t, i) {
+        t.age++;
+        var alpha = (1 - i / TRAIL_LENGTH) * 0.2;
+        var jX = t.x + (Math.random() - 0.5) * 4;
+        var jY = t.y + (Math.random() - 0.5) * 4;
+
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        ctx.font = '700 ' + (18 - i * 0.5) + 'px Satoshi, sans-serif';
+        ctx.fillStyle = '#ffffff';
+        ctx.shadowColor = 'rgba(255, 255, 255, 0.4)';
+        ctx.shadowBlur = 6;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(w.text, jX, jY);
+        ctx.restore();
+      });
+
+      // Draw main text with distortion
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.transform(1, w.distort, w.distort * 0.5, 1, 0, 0);
+
+      // Outer glow layers
+      ctx.font = '800 22px Satoshi, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.shadowColor = 'rgba(255, 255, 255, 0.7)';
+      ctx.shadowBlur = 20;
+      ctx.fillStyle = '#ffffff';
+      ctx.globalAlpha = 0.9;
+      ctx.fillText(w.text, 0, 0);
+
+      // Second glow pass
+      ctx.shadowColor = 'rgba(162, 29, 36, 0.5)';
+      ctx.shadowBlur = 30;
+      ctx.globalAlpha = 1;
+      ctx.fillText(w.text, 0, 0);
+
+      ctx.restore();
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  requestAnimationFrame(draw);
+}
+
+/* --- Popular Products Slider --- */
+function initPopularProductsSlider() {
+  const section = document.querySelector('.popular-products');
+  if (!section) return;
+
+  const textSlides = section.querySelectorAll('.pp__slide-text');
+  const imgSlides = section.querySelectorAll('.pp__img');
+  const prevBtn = section.querySelector('.pp__arrow--prev');
+  const nextBtn = section.querySelector('.pp__arrow--next');
+  const progressBar = section.querySelector('.pp__progress-bar');
+  const total = textSlides.length;
+  let current = 0;
+  let autoplayTimer;
+
+  function goTo(index) {
+    textSlides[current].classList.remove('pp__slide-text--active');
+    imgSlides[current].classList.remove('pp__img--active');
+
+    current = (index + total) % total;
+
+    textSlides[current].classList.add('pp__slide-text--active');
+    imgSlides[current].classList.add('pp__img--active');
+
+    progressBar.style.width = ((current + 1) / total * 100) + '%';
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function startAutoplay() {
+    autoplayTimer = setInterval(next, 5000);
+  }
+
+  function resetAutoplay() {
+    clearInterval(autoplayTimer);
+    startAutoplay();
+  }
+
+  nextBtn.addEventListener('click', () => { next(); resetAutoplay(); });
+  prevBtn.addEventListener('click', () => { prev(); resetAutoplay(); });
+
+  startAutoplay();
+}
+
+/* --- Brands 1000+ Counter Animation --- */
+function initBrandsCounter() {
+  const el = document.querySelector('.brands-counter');
+  if (!el) return;
+
+  const target = parseInt(el.dataset.target, 10);
+  const duration = 2500;
+  let started = false;
+
+  function pad(n) {
+    var s = String(n);
+    while (s.length < 4) s = '0' + s;
+    return s;
+  }
+
+  function run() {
+    if (started) return;
+    started = true;
+
+    const startTime = performance.now();
+    const startScale = 1;
+    const growScale = 1.08;
+
+    function update(now) {
+      const elapsed = now - startTime;
+      const rawProgress = Math.min(elapsed / duration, 1);
+      // Ease-in (slow to fast): cubic
+      const progress = rawProgress * rawProgress * rawProgress;
+
+      const current = Math.floor(progress * target);
+      el.textContent = pad(current);
+
+      // Subtle scale growth during count
+      const scale = startScale + (growScale - startScale) * rawProgress;
+      el.style.transform = 'scale(' + scale + ')';
+
+      if (rawProgress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        // Final state: show "1,000+" with pop effect
+        el.textContent = '1,000+';
+        el.style.transition = 'transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)';
+        el.style.transform = 'scale(1.18)';
+
+        setTimeout(function() {
+          el.style.transform = 'scale(1)';
+        }, 400);
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        run();
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(el);
+}
+
+/* --- Video Section Stat Counters --- */
+function initVideoStatCounters() {
+  var counters = document.querySelectorAll('.video-stat-counter');
+  if (!counters.length) return;
+
+  counters.forEach(function(el) {
+    var target = parseInt(el.dataset.target, 10);
+    var duration = 2000;
+    var started = false;
+
+    function pad(n) {
+      var s = String(n);
+      while (s.length < 3) s = '0' + s;
+      return s;
+    }
+
+    function run() {
+      if (started) return;
+      started = true;
+
+      var startTime = performance.now();
+
+      function update(now) {
+        var elapsed = now - startTime;
+        var rawProgress = Math.min(elapsed / duration, 1);
+        var progress = rawProgress * rawProgress * rawProgress;
+
+        var current = Math.floor(progress * target);
+        el.textContent = pad(current);
+
+        var scale = 1 + 0.08 * rawProgress;
+        el.style.transform = 'scale(' + scale + ')';
+
+        if (rawProgress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          el.innerHTML = '100<span style="color:#a21d24">+</span>';
+          el.style.transition = 'transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)';
+          el.style.transform = 'scale(1.18)';
+
+          setTimeout(function() {
+            el.style.transform = 'scale(1)';
+          }, 400);
+        }
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          run();
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(el);
+  });
 }
