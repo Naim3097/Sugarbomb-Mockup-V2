@@ -25,12 +25,13 @@
         <a href="contact.html" class="nav__link">Contact</a>
       </div>
       <div class="nav__actions">
-        <span class="nav__search">&#128269;</span>
-        <a href="cart.html" class="nav__cart">&#128722;<span class="nav__cart-count">0</span></a>
+        <span class="nav__search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 5 5"/></svg></span>
+        <a href="cart.html" class="nav__cart"><svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="nav__cart-count">0</span></a>
         <div class="nav__hamburger"><span></span><span></span><span></span></div>
       </div>
     </div>
   </nav>
+  <div class="nav__mobile-backdrop"></div>
   <div class="nav__mobile">
     <span class="nav__mobile-close">&times;</span>
     <a href="index.html">Home</a><a href="about.html">About Us</a><a href="expertise.html">Our Expertise</a>
@@ -38,13 +39,13 @@
   </div>
 
   <!-- HERO -->
-  <section class="hero hero--small">
-    <div class="hero__bg" style="background-image: url('assets/visuals/SB VISUAL 1.png');"></div>
-    <div class="hero__overlay"></div>
+  <section class="hero hero--small hero--expertise">
+    <div class="hero__gradient hero__gradient--expertise"></div>
+    <div class="hero__noise"></div>
     <div class="hero__content">
-      <p class="hero__label">Manufacturing Excellence</p>
-      <h1 class="hero__title display-heading">Our Expertise</h1>
-      <p class="hero__subtitle">World-class fragrance manufacturing from the heart of Malaysia</p>
+      <p class="hero__label" data-animate="blur-in">Manufacturing Excellence</p>
+      <h1 class="hero__title display-heading" data-reveal>Our Expertise</h1>
+      <p class="hero__subtitle" data-animate="blur-in">World-class fragrance manufacturing from the heart of Malaysia</p>
     </div>
   </section>
 
@@ -52,25 +53,27 @@
   <section class="section">
     <div class="container">
       <div class="text-center" style="margin-bottom: var(--space-2xl);">
-        <h2 class="display-heading animate-on-scroll">Numbers That Speak</h2>
-        <p class="text-muted text-lg animate-on-scroll delay-1">Our capabilities at a glance</p>
+        <h2 class="display-heading" data-reveal>Numbers That Speak</h2>
+        <p class="text-muted text-lg" data-animate="blur-in">Our capabilities at a glance</p>
       </div>
       <div class="grid grid-4">
-        <div class="stat-card animate-on-scroll delay-1" style="background: var(--color-gray-light); border-radius: var(--radius-md);">
-          <div class="stat-card__number" style="color: var(--color-red);">5M+</div>
-          <div class="stat-card__label" style="color: var(--color-black);">Bottles Produced Per Year</div>
+        <div class="metric-card tilt" data-animate="scale-up" style="transition-delay: 0.05s">
+          <span class="metric-card__number counter-number" data-count="5">0</span>
+          <span class="metric-card__suffix">M+</span>
+          <p class="metric-card__label">Bottles Produced Per Year</p>
         </div>
-        <div class="stat-card animate-on-scroll delay-2" style="background: var(--color-gray-light); border-radius: var(--radius-md);">
-          <div class="stat-card__number" style="color: var(--color-red);">250+</div>
-          <div class="stat-card__label" style="color: var(--color-black);">Scents Across All Categories</div>
+        <div class="metric-card tilt" data-animate="scale-up" style="transition-delay: 0.15s">
+          <span class="metric-card__number counter-number" data-count="250">0</span>
+          <span class="metric-card__suffix">+</span>
+          <p class="metric-card__label">Scents Across All Categories</p>
         </div>
-        <div class="stat-card animate-on-scroll delay-3" style="background: var(--color-gray-light); border-radius: var(--radius-md);">
-          <div class="stat-card__number" style="color: var(--color-red);">20,000</div>
-          <div class="stat-card__label" style="color: var(--color-black);">sqm Manufacturing Facilities</div>
+        <div class="metric-card tilt" data-animate="scale-up" style="transition-delay: 0.25s">
+          <span class="metric-card__number">20K</span>
+          <p class="metric-card__label">sqm Manufacturing Facilities</p>
         </div>
-        <div class="stat-card animate-on-scroll delay-4" style="background: var(--color-gray-light); border-radius: var(--radius-md);">
-          <div class="stat-card__number" style="color: var(--color-red);">6</div>
-          <div class="stat-card__label" style="color: var(--color-black);">Countries Reached</div>
+        <div class="metric-card tilt" data-animate="scale-up" style="transition-delay: 0.35s">
+          <span class="metric-card__number counter-number" data-count="6">0</span>
+          <p class="metric-card__label">Countries Reached</p>
         </div>
       </div>
     </div>
@@ -80,24 +83,24 @@
   <section class="section section--gray">
     <div class="container">
       <div class="text-center" style="margin-bottom: var(--space-2xl);">
-        <h2 class="display-heading animate-on-scroll">Our Certifications</h2>
-        <p class="text-muted text-lg animate-on-scroll delay-1">Trusted quality, verified excellence</p>
+        <h2 class="display-heading" data-reveal>Our Certifications</h2>
+        <p class="text-muted text-lg" data-animate="blur-in">Trusted quality, verified excellence</p>
       </div>
-      <div class="grid grid-3" style="max-width: 1000px; margin: 0 auto;">
-        <div class="info-card animate-on-scroll delay-1">
-          <div class="info-card__icon">🏭</div>
-          <h3 class="info-card__title">GMP Certified</h3>
-          <p class="info-card__text">Good Manufacturing Practice certification ensures every product meets the highest international production standards — from raw materials to finished goods.</p>
+      <div class="cert-grid">
+        <div class="cert-badge" data-animate="slide-left" style="transition-delay: 0.05s">
+          <span class="cert-badge__mark">GMP</span>
+          <h3 class="cert-badge__title">Good Manufacturing Practice</h3>
+          <p class="cert-badge__text">Every product meets the highest international production standards — from raw materials to finished goods.</p>
         </div>
-        <div class="info-card animate-on-scroll delay-2">
-          <div class="info-card__icon">☪️</div>
-          <h3 class="info-card__title">Halal Certified</h3>
-          <p class="info-card__text">All manufacturing facilities and processes are Halal certified, ensuring our fragrances meet Islamic compliance standards for our Muslim consumers worldwide.</p>
+        <div class="cert-badge" data-animate="scale-up" style="transition-delay: 0.15s">
+          <span class="cert-badge__mark">Halal</span>
+          <h3 class="cert-badge__title">Halal Certified</h3>
+          <p class="cert-badge__text">All processes meet Islamic compliance standards for our Muslim consumers worldwide.</p>
         </div>
-        <div class="info-card animate-on-scroll delay-3">
-          <div class="info-card__icon">♻️</div>
-          <h3 class="info-card__title">Zero Waste Policy</h3>
-          <p class="info-card__text">Our waste recovery technique ensures sustainable manufacturing with minimal environmental impact. Committed to greener fragrance production.</p>
+        <div class="cert-badge" data-animate="slide-right" style="transition-delay: 0.25s">
+          <span class="cert-badge__mark">0%</span>
+          <h3 class="cert-badge__title">Zero Waste Policy</h3>
+          <p class="cert-badge__text">Waste recovery technique ensures sustainable manufacturing with minimal environmental impact.</p>
         </div>
       </div>
     </div>
@@ -106,30 +109,31 @@
   <!-- R&D PROCESS -->
   <section class="section">
     <div class="container">
-      <div class="text-center" style="margin-bottom: var(--space-2xl);">
-        <h2 class="display-heading animate-on-scroll">From Concept to Bottle</h2>
-        <p class="text-muted text-lg animate-on-scroll delay-1">Our vertically-integrated production process</p>
+      <div class="text-center" style="margin-bottom: var(--space-3xl);">
+        <h2 class="display-heading" data-reveal>From Concept to Bottle</h2>
+        <p class="text-muted text-lg" data-animate="blur-in">Our vertically-integrated production process</p>
       </div>
-      <div class="grid grid-4">
-        <div class="value-card animate-on-scroll delay-1">
-          <div class="value-card__icon" style="background: var(--color-red-light); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); font-size: 1.5rem;">01</div>
-          <h3 class="value-card__title">Research & Development</h3>
-          <p class="value-card__text">In-house R&D team with 6 registered chemists developing tropical-optimized scent profiles that last 8–24 hours.</p>
+      <div class="pipeline">
+        <div class="pipeline__line scroll-fill" aria-hidden="true"></div>
+        <div class="pipeline__step" data-animate="fade" style="transition-delay: 0.05s">
+          <span class="pipeline__num">01</span>
+          <h3 class="pipeline__title">Research &amp; Development</h3>
+          <p class="pipeline__text">In-house R&amp;D team with 6 registered chemists developing tropical-optimized scent profiles that last 8–24 hours.</p>
         </div>
-        <div class="value-card animate-on-scroll delay-2">
-          <div class="value-card__icon" style="background: var(--color-red-light); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); font-size: 1.5rem;">02</div>
-          <h3 class="value-card__title">Manufacturing</h3>
-          <p class="value-card__text">20,000 sqm GMP & Halal certified facilities in Klang, Selangor producing 5 million+ bottles annually.</p>
+        <div class="pipeline__step" data-animate="fade" style="transition-delay: 0.15s">
+          <span class="pipeline__num">02</span>
+          <h3 class="pipeline__title">Manufacturing</h3>
+          <p class="pipeline__text">20,000 sqm GMP &amp; Halal certified facilities in Klang producing 5 million+ bottles annually.</p>
         </div>
-        <div class="value-card animate-on-scroll delay-3">
-          <div class="value-card__icon" style="background: var(--color-red-light); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); font-size: 1.5rem;">03</div>
-          <h3 class="value-card__title">Quality Control</h3>
-          <p class="value-card__text">Rigorous multi-stage quality checks by professional technologists ensuring every bottle meets our exacting standards.</p>
+        <div class="pipeline__step" data-animate="fade" style="transition-delay: 0.25s">
+          <span class="pipeline__num">03</span>
+          <h3 class="pipeline__title">Quality Control</h3>
+          <p class="pipeline__text">Rigorous multi-stage checks by professional technologists ensuring every bottle meets exacting standards.</p>
         </div>
-        <div class="value-card animate-on-scroll delay-4">
-          <div class="value-card__icon" style="background: var(--color-red-light); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); font-size: 1.5rem;">04</div>
-          <h3 class="value-card__title">Distribution</h3>
-          <p class="value-card__text">Nationwide distributor network with international reach across 6 countries on 2 continents.</p>
+        <div class="pipeline__step" data-animate="fade" style="transition-delay: 0.35s">
+          <span class="pipeline__num">04</span>
+          <h3 class="pipeline__title">Distribution</h3>
+          <p class="pipeline__text">Nationwide distributor network with international reach across 6 countries on 2 continents.</p>
         </div>
       </div>
     </div>
@@ -137,13 +141,19 @@
 
   <!-- FACTORY -->
   <section class="section section--red">
-    <div class="container text-center">
-      <div class="animate-on-scroll">
-        <p class="label" style="opacity: 0.85; margin-bottom: var(--space-md);">Klang, Selangor · Malaysia</p>
-        <h2 class="display-heading" style="font-size: 2.75rem; margin-bottom: var(--space-lg);">20,000 sqm of Manufacturing Excellence</h2>
-        <p style="max-width: 700px; margin: 0 auto; opacity: 0.9; font-size: 1.125rem; line-height: 1.7;">
-          Our state-of-the-art factory and warehouse in Klang houses every stage of production — from raw material processing to final packaging. Vertically integrated for quality control and speed.
-        </p>
+    <div class="container">
+      <div class="factory-hero" data-animate="clip-left">
+        <div class="factory-hero__number">
+          <span class="counter-number" data-count="20000">0</span>
+          <span class="factory-hero__unit">sqm</span>
+        </div>
+        <div class="factory-hero__body">
+          <p class="label" style="opacity: 0.85; margin-bottom: var(--space-sm);">Klang, Selangor · Malaysia</p>
+          <h2 class="display-heading" style="margin-bottom: var(--space-md);">Manufacturing Excellence</h2>
+          <p style="opacity: 0.9; font-size: 1.0625rem; line-height: 1.7; max-width: 480px;">
+            Our state-of-the-art factory and warehouse houses every stage of production — from raw material processing to final packaging. Vertically integrated for quality control and speed.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -152,29 +162,60 @@
   <section class="section">
     <div class="container">
       <div class="text-center" style="margin-bottom: var(--space-2xl);">
-        <h2 class="display-heading animate-on-scroll">Our Professional Team</h2>
-        <p class="text-muted text-lg animate-on-scroll delay-1">Backed by certified professionals</p>
+        <h2 class="display-heading" data-reveal>Our Professional Team</h2>
+        <p class="text-muted text-lg" data-animate="blur-in">Backed by certified professionals</p>
       </div>
-      <div class="grid grid-2" style="max-width: 800px; margin: 0 auto;">
-        <div class="info-card animate-on-scroll delay-1">
-          <div class="info-card__icon">🔬</div>
-          <h3 class="info-card__title">6 Registered Chemists</h3>
-          <p class="info-card__text">Professional Members of the Malaysia Institute of Chemistry, leading our fragrance formulation and R&D efforts.</p>
+      <div class="team-row">
+        <div class="team-card tilt" data-animate="slide-left">
+          <span class="team-card__num">6</span>
+          <div class="team-card__info">
+            <h3 class="team-card__title">Registered Chemists</h3>
+            <p class="team-card__text">Professional Members of the Malaysia Institute of Chemistry, leading our fragrance formulation and R&amp;D efforts.</p>
+          </div>
         </div>
-        <div class="info-card animate-on-scroll delay-2">
-          <div class="info-card__icon">⚙️</div>
-          <h3 class="info-card__title">1 Professional Technologist</h3>
-          <p class="info-card__text">Professional Member of the Malaysia Board of Technologists, overseeing manufacturing processes and quality assurance.</p>
+        <div class="team-card tilt" data-animate="slide-right">
+          <span class="team-card__num">1</span>
+          <div class="team-card__info">
+            <h3 class="team-card__title">Professional Technologist</h3>
+            <p class="team-card__text">Professional Member of the Malaysia Board of Technologists, overseeing manufacturing processes and quality assurance.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VISUAL: EXPERTISE INFOGRAPHIC -->
+  <!-- CAPABILITIES -->
   <section class="section section--gray">
     <div class="container">
-      <div class="visual-section animate-on-scroll" style="max-width: 1000px; margin: 0 auto;">
-        <img src="assets/visuals/SB VISUAL 1.png" alt="SugarBomb Expertise Overview">
+      <div class="text-center" style="margin-bottom: var(--space-2xl);">
+        <h2 class="display-heading" data-reveal>Full-Stack Fragrance</h2>
+        <p class="text-muted text-lg" data-animate="blur-in">End-to-end capabilities under one roof</p>
+      </div>
+      <div class="cap-marquee-wrap">
+        <div class="marquee-track">
+          <div class="marquee-inner">
+            <div class="cap-item"><span class="cap-item__label">Formulation</span></div>
+            <div class="cap-item"><span class="cap-item__label">Compounding</span></div>
+            <div class="cap-item"><span class="cap-item__label">Filling &amp; Packaging</span></div>
+            <div class="cap-item"><span class="cap-item__label">Quality Assurance</span></div>
+            <div class="cap-item"><span class="cap-item__label">Warehousing</span></div>
+            <div class="cap-item"><span class="cap-item__label">Distribution</span></div>
+            <div class="cap-item"><span class="cap-item__label">OEM / ODM</span></div>
+            <div class="cap-item"><span class="cap-item__label">Brand Development</span></div>
+          </div>
+        </div>
+        <div class="marquee-track marquee-track--reverse" style="margin-top: var(--space-md);">
+          <div class="marquee-inner">
+            <div class="cap-item"><span class="cap-item__label">Scent Profiling</span></div>
+            <div class="cap-item"><span class="cap-item__label">Bottle Design</span></div>
+            <div class="cap-item"><span class="cap-item__label">Label Printing</span></div>
+            <div class="cap-item"><span class="cap-item__label">Research Lab</span></div>
+            <div class="cap-item"><span class="cap-item__label">Climate Testing</span></div>
+            <div class="cap-item"><span class="cap-item__label">Compliance</span></div>
+            <div class="cap-item"><span class="cap-item__label">Global Shipping</span></div>
+            <div class="cap-item"><span class="cap-item__label">Market Strategy</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

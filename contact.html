@@ -25,12 +25,13 @@
         <a href="contact.html" class="nav__link active">Contact</a>
       </div>
       <div class="nav__actions">
-        <span class="nav__search">&#128269;</span>
-        <a href="cart.html" class="nav__cart">&#128722;<span class="nav__cart-count">0</span></a>
+        <span class="nav__search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 5 5"/></svg></span>
+        <a href="cart.html" class="nav__cart"><svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="nav__cart-count">0</span></a>
         <div class="nav__hamburger"><span></span><span></span><span></span></div>
       </div>
     </div>
   </nav>
+  <div class="nav__mobile-backdrop"></div>
   <div class="nav__mobile">
     <span class="nav__mobile-close">&times;</span>
     <a href="index.html">Home</a><a href="about.html">About Us</a><a href="expertise.html">Our Expertise</a>
@@ -43,7 +44,7 @@
     <div class="hero__overlay"></div>
     <div class="hero__content">
       <p class="hero__label">We'd Love to Hear From You</p>
-      <h1 class="hero__title display-heading">Get In Touch</h1>
+      <h1 class="hero__title display-heading" data-reveal>Get In Touch</h1>
       <p class="hero__subtitle">Questions, partnerships, or just want to say hello?</p>
     </div>
   </section>
@@ -99,7 +100,7 @@
           <div class="flex-col gap-lg">
             <div class="info-card" style="text-align: left;">
               <div class="flex gap-md" style="align-items: flex-start;">
-                <div class="info-card__icon" style="margin-bottom: 0;">📍</div>
+                <div class="info-card__icon" style="margin-bottom: 0;"><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
                 <div>
                   <h4 class="info-card__title" style="text-align: left;">Headquarters</h4>
                   <p class="info-card__text" style="text-align: left;">Klang, Selangor<br>Malaysia</p>
@@ -108,7 +109,7 @@
             </div>
             <div class="info-card" style="text-align: left;">
               <div class="flex gap-md" style="align-items: flex-start;">
-                <div class="info-card__icon" style="margin-bottom: 0;">📞</div>
+                <div class="info-card__icon" style="margin-bottom: 0;"><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></div>
                 <div>
                   <h4 class="info-card__title" style="text-align: left;">Phone</h4>
                   <p class="info-card__text" style="text-align: left;">+603-XXXX XXXX<br>Mon – Fri, 9AM – 6PM (MYT)</p>
@@ -117,7 +118,7 @@
             </div>
             <div class="info-card" style="text-align: left;">
               <div class="flex gap-md" style="align-items: flex-start;">
-                <div class="info-card__icon" style="margin-bottom: 0;">✉️</div>
+                <div class="info-card__icon" style="margin-bottom: 0;"><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
                 <div>
                   <h4 class="info-card__title" style="text-align: left;">Email</h4>
                   <p class="info-card__text" style="text-align: left;">info@sugarbombgroup.com<br>b2b@sugarbombgroup.com</p>
@@ -126,7 +127,7 @@
             </div>
             <div class="info-card" style="text-align: left;">
               <div class="flex gap-md" style="align-items: flex-start;">
-                <div class="info-card__icon" style="margin-bottom: 0;">🌐</div>
+                <div class="info-card__icon" style="margin-bottom: 0;"><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg></div>
                 <div>
                   <h4 class="info-card__title" style="text-align: left;">Social</h4>
                   <div style="display: flex; gap: var(--space-sm); margin-top: var(--space-sm);">
@@ -148,7 +149,7 @@
     <div class="container">
       <div class="animate-on-scroll" style="background: var(--color-white); border-radius: var(--radius-md); overflow: hidden; height: 400px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px var(--color-shadow);">
         <div class="text-center">
-          <p style="font-size: 3rem; margin-bottom: var(--space-md);">📍</p>
+          <p style="font-size: 3rem; margin-bottom: var(--space-md);"><svg viewBox="0 0 24 24" style="width:48px;height:48px;stroke:var(--color-red);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></p>
           <h3>SugarBomb Group HQ</h3>
           <p class="text-muted">Klang, Selangor, Malaysia</p>
           <p class="text-sm text-muted" style="margin-top: var(--space-sm);">[Map placeholder — Klang, Selangor]</p>
