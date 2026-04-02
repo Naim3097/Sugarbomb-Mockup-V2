@@ -370,21 +370,78 @@
     </div>
   </section>
 
-  <!-- ============ FEATURED PRODUCT ============ -->
-  <section class="section">
+  <!-- ============ FEATURED PRODUCTS — SCROLL CARD DECK ============ -->
+  <section class="section card-deck-section">
     <div class="container">
-      <div class="feature-card animate-on-scroll">
-        <div class="feature-card__visual">
-          <img src="assets/hush lush/hush lush.png" alt="Hush Lush" style="width:100%; height:100%; object-fit:cover;">
+      <div class="text-center" style="margin-bottom: var(--space-2xl);">
+        <span class="badge badge--red animate-on-scroll" style="margin-bottom: var(--space-md); display: inline-block;">Bestseller</span>
+        <h2 class="display-heading animate-on-scroll">Our Collections</h2>
+      </div>
+      <div class="card-deck" id="cardDeck">
+        <div class="card-deck__track">
+          <div class="card-deck__card" data-index="0">
+            <div class="card-deck__img">
+              <img src="assets/hush lush/hush lush.png" alt="Hush Lush">
+            </div>
+            <div class="card-deck__info">
+              <span class="card-deck__collection">Luscious Collection</span>
+              <h3 class="card-deck__name">Hush Lush</h3>
+              <p class="card-deck__desc">A symphony of fragrances that transcends the ordinary — timeless elegance meets modern innovation.</p>
+              <p class="card-deck__collab"><em>"From Petals to Odyssey"</em> — Collaboration with <strong>Kajal Gujar</strong></p>
+              <a href="product.html" class="btn btn--primary">Shop Now</a>
+            </div>
+          </div>
+          <div class="card-deck__card" data-index="1">
+            <div class="card-deck__img">
+              <div class="card-deck__placeholder"></div>
+            </div>
+            <div class="card-deck__info">
+              <span class="card-deck__collection">Eternal Collection</span>
+              <h3 class="card-deck__name">Black Diamond</h3>
+              <p class="card-deck__desc">A bold and daring scent that captures the essence of midnight luxury — deep, mysterious, unforgettable.</p>
+              <a href="product.html" class="btn btn--primary">Shop Now</a>
+            </div>
+          </div>
+          <div class="card-deck__card" data-index="2">
+            <div class="card-deck__img">
+              <div class="card-deck__placeholder"></div>
+            </div>
+            <div class="card-deck__info">
+              <span class="card-deck__collection">Blast Sports</span>
+              <h3 class="card-deck__name">Ocean Breeze</h3>
+              <p class="card-deck__desc">Fresh and invigorating — an aquatic burst designed for the active soul who craves freedom and energy.</p>
+              <a href="product.html" class="btn btn--primary">Shop Now</a>
+            </div>
+          </div>
+          <div class="card-deck__card" data-index="3">
+            <div class="card-deck__img">
+              <div class="card-deck__placeholder"></div>
+            </div>
+            <div class="card-deck__info">
+              <span class="card-deck__collection">SB Parfum</span>
+              <h3 class="card-deck__name">Sweet Cherry</h3>
+              <p class="card-deck__desc">Playful warmth of cherry blossom intertwined with almond and tonka — sweet sophistication redefined.</p>
+              <a href="product.html" class="btn btn--primary">Shop Now</a>
+            </div>
+          </div>
+          <div class="card-deck__card" data-index="4">
+            <div class="card-deck__img">
+              <div class="card-deck__placeholder"></div>
+            </div>
+            <div class="card-deck__info">
+              <span class="card-deck__collection">Secretscent</span>
+              <h3 class="card-deck__name">Dark Phantom</h3>
+              <p class="card-deck__desc">For the bold and enigmatic — leather, tobacco, and oud collide in an intoxicating trail of mystery.</p>
+              <a href="product.html" class="btn btn--primary">Shop Now</a>
+            </div>
+          </div>
         </div>
-        <div class="feature-card__content">
-          <span class="badge badge--red" style="margin-bottom: var(--space-md);">Bestseller</span>
-          <p class="label text-muted" style="margin-bottom: var(--space-sm);">Luscious Collection</p>
-          <h2 class="display-heading" style="margin-bottom: var(--space-md);">Hush Lush</h2>
-          <p class="text-lg" style="margin-bottom: var(--space-md); color: var(--color-text-muted); line-height: 1.7;">A symphony of fragrances that transcends the ordinary, weaving a tale of timeless elegance and modern innovation.</p>
-          <p style="font-size: 0.875rem; margin-bottom: var(--space-sm); color: var(--color-text-muted);"><em>"From Petals to Odyssey"</em> — a sensory journey of luxury meets cutting-edge technology.</p>
-          <p style="font-size: 0.8125rem; margin-bottom: var(--space-lg); color: var(--color-text-muted);">Collaboration with <strong>Kajal Gujar</strong>, International Perfumer</p>
-          <a href="product.html" class="btn btn--primary btn--lg">Shop Now</a>
+        <div class="card-deck__nav">
+          <button class="card-deck__dot active" data-slide="0"></button>
+          <button class="card-deck__dot" data-slide="1"></button>
+          <button class="card-deck__dot" data-slide="2"></button>
+          <button class="card-deck__dot" data-slide="3"></button>
+          <button class="card-deck__dot" data-slide="4"></button>
         </div>
       </div>
     </div>

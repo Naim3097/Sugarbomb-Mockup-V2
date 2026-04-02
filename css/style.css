@@ -4124,6 +4124,138 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
 }
 
 /* ============================================================
+   38b4. FEATURED PRODUCTS — SCROLL CARD DECK
+   ============================================================ */
+.card-deck-section {
+  overflow: hidden;
+}
+
+.card-deck {
+  position: relative;
+}
+
+.card-deck__track {
+  display: flex;
+  transition: transform 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.card-deck__card {
+  flex: 0 0 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+  padding: var(--space-xl) 0;
+  opacity: 0;
+  transform: scale(0.92) translateY(30px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.card-deck__card.is-active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.card-deck__img {
+  aspect-ratio: 3 / 4;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.card-deck__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-deck__placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #eee 0%, #ddd 50%, #eee 100%);
+  background-size: 200% 200%;
+  animation: deckShimmer 2s ease infinite;
+}
+
+@keyframes deckShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.card-deck__info {
+  padding: var(--space-lg) 0;
+}
+
+.card-deck__collection {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-red);
+  margin-bottom: var(--space-sm);
+}
+
+.card-deck__name {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: var(--fw-black);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: var(--space-md);
+}
+
+.card-deck__desc {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin-bottom: var(--space-sm);
+  max-width: 440px;
+}
+
+.card-deck__collab {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.card-deck__nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: var(--space-xl);
+}
+
+.card-deck__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--color-black);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background 300ms, transform 300ms;
+}
+
+.card-deck__dot.active {
+  background: var(--color-red);
+  border-color: var(--color-red);
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .card-deck__card {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  .card-deck__name {
+    font-size: 2rem;
+  }
+}
+
+/* ============================================================
    38c. POPULAR PRODUCTS — Split Slider
    ============================================================ */
 .popular-products {

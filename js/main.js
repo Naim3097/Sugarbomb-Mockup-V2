@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initExpertiseStars();
   initScrollSlides();
   initShuffleGrid();
+  initCardDeck();
 });
 
 /* --- Page Load Transition --- */
@@ -1156,4 +1157,96 @@ function initShuffleGrid() {
       });
     }, 600);
   }, 3000);
+}
+
+/* --- Card Deck (scroll-driven product slides) --- */
+function initCardDeck() {
+  var deck = document.getElementById('cardDeck');
+  if (!deck) return;
+
+  var track = deck.querySelector('.card-deck__track');
+  var cards = deck.querySelectorAll('.card-deck__card');
+  var dots = deck.querySelectorAll('.card-deck__dot');
+  var current = 0;
+  var total = cards.length;
+  var isAnimating = false;
+
+  function goTo(index) {
+    if (isAnimating || index === current || index < 0 || index >= total) return;
+    isAnimating = true;
+
+    // Fade out current
+    cards[current].classList.remove('is-active');
+
+    current = index;
+
+    // Slide track
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+
+    // Update dots
+    dots.forEach(function(d, i) {
+      d.classList.toggle('active', i === current);
+    });
+
+    // Fade in new card after slide
+    setTimeout(function() {
+      cards[current].classList.add('is-active');
+      isAnimating = false;
+    }, 300);
+  }
+
+  // Init first card
+  cards[0].classList.add('is-active');
+
+  // Dot clicks
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      goTo(parseInt(dot.getAttribute('data-slide'), 10));
+    });
+  });
+
+  // Scroll-driven: detect wheel inside section
+  deck.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    if (isAnimating) return;
+
+    if (e.deltaY > 0) {
+      goTo(current + 1);
+    } else if (e.deltaY < 0) {
+      goTo(current - 1);
+    }
+  }, { passive: false });
+
+  // Touch swipe support
+  var touchStartX = 0;
+  var touchStartY = 0;
+
+  deck.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  deck.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    var dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+      if (dx < 0) goTo(current + 1);
+      else goTo(current - 1);
+    }
+  }, { passive: true });
+
+  // Auto-play every 5s
+  var autoTimer = setInterval(function() {
+    var next = (current + 1) % total;
+    goTo(next);
+  }, 5000);
+
+  // Pause auto on hover
+  deck.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
+  deck.addEventListener('mouseleave', function() {
+    autoTimer = setInterval(function() {
+      var next = (current + 1) % total;
+      goTo(next);
+    }, 5000);
+  });
 }
