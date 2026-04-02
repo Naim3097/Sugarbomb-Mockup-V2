@@ -3408,8 +3408,104 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
 }
 
 /* ============================================================
-   30. SOCIAL MEDIA STATS
+   30. SOCIAL MEDIA / TIKTOK SECTION
    ============================================================ */
+.tiktok-section {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.tiktok-section__content {
+  text-align: left;
+}
+
+.tiktok-section__stats {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.tiktok-stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tiktok-stat__icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tiktok-stat__number {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: var(--fw-black);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.tiktok-stat__label {
+  font-size: 0.6875rem;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: var(--fw-medium);
+  margin-top: 2px;
+}
+
+.btn--white {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #fff;
+  color: var(--color-red);
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 200ms, transform 200ms;
+}
+
+.btn--white:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
+.tiktok-section__embed {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  max-height: 520px;
+  min-height: 400px;
+}
+
+.tiktok-section__embed blockquote {
+  margin: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .tiktok-section {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  .tiktok-section__stats {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  .tiktok-section__embed {
+    max-height: 480px;
+  }
+}
+
 .social-stat {
   text-align: center;
   padding: var(--space-xl);
