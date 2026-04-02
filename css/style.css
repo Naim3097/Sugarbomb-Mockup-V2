@@ -4445,6 +4445,47 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
 }
 
 /* ============================================================
+   42b. SHUFFLE GRID HERO
+   ============================================================ */
+.shuffle-hero {
+  background: var(--color-cream, #f7f5f0);
+}
+
+.shuffle-hero__wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.shuffle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  height: 450px;
+  gap: 4px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.shuffle-grid__cell {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-color: #e5e5e5;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.6s ease;
+}
+
+.shuffle-grid__cell.is-shuffling {
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+/* ============================================================
    43. LOCATIONS HERO
    ============================================================ */
 .locations-hero {
@@ -4661,6 +4702,8 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
   .locations-hero__count { font-size: 7rem; }
   .whats-new { grid-template-columns: 1fr; gap: var(--space-xl); }
   .whats-new__header { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(0, 0, 0, 0.08); padding-bottom: var(--space-xl); }
+  .shuffle-hero__wrap { grid-template-columns: 1fr; gap: var(--space-xl); }
+  .shuffle-grid { height: 350px; }
   .hero__orb--1 { width: 350px; height: 350px; }
   .hero__orb--2 { width: 250px; height: 250px; }
   .hero__orb--3 { width: 160px; height: 160px; }

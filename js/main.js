@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initShopPage();
   initExpertiseStars();
   initScrollSlides();
+  initShuffleGrid();
 });
 
 /* --- Page Load Transition --- */
@@ -1084,4 +1085,64 @@ function initScrollSlides() {
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+}
+
+/* --- Shuffle Grid --- */
+function initShuffleGrid() {
+  var grid = document.getElementById('shuffleGrid');
+  if (!grid) return;
+
+  var squareData = [
+    'https://images.unsplash.com/photo-1547347298-4074fc3086f0?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1510925758641-869d353cecc7?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1629901925121-8a141c2a42f4?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1580238053495-b9720401fd45?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1569074187119-c87815b476da?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1599586120429-48281b6f0ece?auto=format&fit=crop&w=600&q=80',
+    'https://plus.unsplash.com/premium_photo-1671436824833-91c0741e89c9?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1610768764270-790fbec18178?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1507034589631-9433cc6bc453?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1560089000-7433a4ebbd64?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1606244864456-8bee63fce472?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80'
+  ];
+
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i];
+      a[i] = a[j];
+      a[j] = tmp;
+    }
+    return a;
+  }
+
+  // Build initial cells
+  var cells = [];
+  var shuffled = shuffle(squareData);
+  for (var i = 0; i < 16; i++) {
+    var cell = document.createElement('div');
+    cell.className = 'shuffle-grid__cell';
+    cell.style.backgroundImage = 'url(' + shuffled[i] + ')';
+    grid.appendChild(cell);
+    cells.push(cell);
+  }
+
+  // Shuffle every 3 seconds
+  setInterval(function() {
+    var newOrder = shuffle(squareData);
+    // Animate out
+    cells.forEach(function(c) { c.classList.add('is-shuffling'); });
+    setTimeout(function() {
+      cells.forEach(function(c, idx) {
+        c.style.backgroundImage = 'url(' + newOrder[idx] + ')';
+        c.classList.remove('is-shuffling');
+      });
+    }, 600);
+  }, 3000);
 }
