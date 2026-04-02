@@ -182,6 +182,37 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
   position: relative;
 }
 
+/* Expertise Section Background */
+.expertise-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.expertise-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.expertise-section__bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/mascott/red-pattern-background reverse.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.expertise-section__stars {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
 .section--red {
   background: var(--color-red);
   color: var(--color-white);
@@ -3890,7 +3921,7 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
 .video-stat-counter {
   display: block;
   font-family: var(--font-display);
-  font-size: 12rem;
+  font-size: 8.4rem;
   font-weight: var(--fw-black);
   letter-spacing: -0.03em;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
@@ -3898,7 +3929,7 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
 
 .video-section__stat-label {
   display: block;
-  font-size: 3rem;
+  font-size: 2.1rem;
   font-weight: var(--fw-medium);
   opacity: 0.85;
   margin-top: var(--space-xs);
@@ -3911,11 +3942,92 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
     gap: var(--space-xl);
   }
   .video-stat-counter {
-    font-size: 5rem;
+    font-size: 3.5rem;
   }
   .video-section__stat-label {
-    font-size: 1.5rem;
+    font-size: 1.05rem;
   }
+}
+
+/* ============================================================
+   38b3. SCROLL OVERLAY SLIDES
+   ============================================================ */
+.scroll-slides {
+  position: relative;
+  background: #000;
+}
+
+.scroll-slides__headline {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  pointer-events: none;
+}
+
+.scroll-slides__title {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 10px 28px;
+  border-radius: 40px;
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+.scroll-slides__track {
+  position: relative;
+}
+
+.scroll-slides__slide {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scroll-slides__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.scroll-slides__cta {
+  position: sticky;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 14px 40px;
+  background: #fff;
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  border-radius: 40px;
+  z-index: 10;
+  pointer-events: auto;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-slides__cta:hover {
+  opacity: 0.85;
+  transform: translateX(-50%) scale(1.04);
 }
 
 /* ============================================================
