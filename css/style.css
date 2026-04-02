@@ -836,15 +836,17 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
 
 .product-card__image {
   position: relative;
-  aspect-ratio: 4/5;
+  aspect-ratio: 1/1;
   overflow: hidden;
-  background: var(--color-gray-light);
+  background: #fff;
+  border: 1px solid #eee;
 }
 
 .product-card__image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 16px;
   transition: transform 700ms var(--ease-out);
 }
 
