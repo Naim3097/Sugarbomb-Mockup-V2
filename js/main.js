@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPopularProductsSlider();
   initBrandsCounter();
   initVideoStatCounters();
+  initShopPage();
 });
 
 /* --- Page Load Transition --- */
@@ -916,5 +917,65 @@ function initVideoStatCounters() {
     }, { threshold: 0.5 });
 
     observer.observe(el);
+  });
+}
+
+/* ============================================================
+   SHOP PAGE
+   ============================================================ */
+function initShopPage() {
+  var filterToggle = document.getElementById('filterToggle');
+  var sidebar = document.getElementById('shopSidebar');
+  var sidebarClose = document.getElementById('sidebarClose');
+  var sidebarOverlay = document.getElementById('sidebarOverlay');
+  var shopGrid = document.getElementById('shopGrid');
+
+  if (!shopGrid) return;
+
+  // --- Filter sidebar toggle (mobile) ---
+  function openSidebar() {
+    if (sidebar) sidebar.classList.add('open');
+    if (sidebarOverlay) sidebarOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSidebar() {
+    if (sidebar) sidebar.classList.remove('open');
+    if (sidebarOverlay) sidebarOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (filterToggle) {
+    filterToggle.addEventListener('click', function() {
+      if (window.innerWidth <= 768) {
+        openSidebar();
+      } else {
+        sidebar.style.display = sidebar.style.display === 'none' ? '' : 'none';
+      }
+    });
+  }
+
+  if (sidebarClose) sidebarClose.addEventListener('click', closeSidebar);
+  if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+
+  // --- Filter group collapse ---
+  var toggles = document.querySelectorAll('.shop-filter-group__toggle');
+  toggles.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var group = btn.closest('.shop-filter-group');
+      var isOpen = group.getAttribute('data-open') === 'true';
+      group.setAttribute('data-open', isOpen ? 'false' : 'true');
+    });
+  });
+
+  // --- View type switcher ---
+  var viewBtns = document.querySelectorAll('.shop-toolbar__view-btn');
+  viewBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      viewBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var cols = btn.getAttribute('data-cols');
+      shopGrid.setAttribute('data-cols', cols);
+    });
   });
 }

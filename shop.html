@@ -18,11 +18,7 @@
       </a>
       <div class="nav__links">
         <a href="index.html" class="nav__link">Home</a>
-        <a href="about.html" class="nav__link">About Us</a>
-        <a href="expertise.html" class="nav__link">Our Expertise</a>
-        <a href="brands.html" class="nav__link">Our Brands</a>
         <a href="shop.html" class="nav__link active">Shop</a>
-        <a href="contact.html" class="nav__link">Contact</a>
       </div>
       <div class="nav__actions">
         <span class="nav__search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 5 5"/></svg></span>
@@ -34,196 +30,370 @@
   <div class="nav__mobile-backdrop"></div>
   <div class="nav__mobile">
     <span class="nav__mobile-close">&times;</span>
-    <a href="index.html">Home</a><a href="about.html">About Us</a><a href="expertise.html">Our Expertise</a>
-    <a href="brands.html">Our Brands</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a><a href="cart.html">Cart</a>
+    <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="cart.html">Cart</a>
   </div>
 
-  <!-- PAGE CONTENT -->
-  <div style="padding-top: var(--nav-height);">
+  <!-- COLLECTION BANNER -->
+  <div class="shop-banner">
+    <div class="shop-banner__inner">
+      <nav class="shop-banner__crumbs">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Shop</span>
+      </nav>
+      <h1 class="shop-banner__title">All Products</h1>
+      <p class="shop-banner__count">250+ products across all collections</p>
+    </div>
+  </div>
+
+  <!-- SHOP BODY -->
+  <div class="shop-body">
     <div class="container">
 
-      <!-- Breadcrumb -->
-      <div class="breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb__separator">›</span>
-        <span>Shop</span>
-      </div>
-
-      <!-- Page Header -->
-      <div class="flex-between" style="margin-bottom: var(--space-md);">
-        <div>
-          <h1 style="font-size: 2rem;">All Products</h1>
-          <p class="text-muted text-sm">Showing 9 of 250+ products</p>
+      <!-- Toolbar -->
+      <div class="shop-toolbar">
+        <div class="shop-toolbar__left">
+          <button class="shop-toolbar__filter-btn" id="filterToggle">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="20" y2="12"/><line x1="12" y1="18" x2="20" y2="18"/><circle cx="6" cy="12" r="2" fill="currentColor"/><circle cx="14" cy="18" r="2" fill="currentColor"/></svg>
+            Filter
+          </button>
+          <span class="shop-toolbar__result-count">Showing 12 products</span>
+        </div>
+        <div class="shop-toolbar__right">
+          <div class="shop-toolbar__sort">
+            <label for="shopSort">Sort by</label>
+            <select id="shopSort">
+              <option>Featured</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+              <option>Newest</option>
+              <option>Bestselling</option>
+            </select>
+          </div>
+          <div class="shop-toolbar__views">
+            <button class="shop-toolbar__view-btn" data-cols="2" title="2 columns">
+              <svg width="16" height="16" viewBox="0 0 16 16"><rect x="0" y="0" width="7" height="7" rx="1"/><rect x="9" y="0" width="7" height="7" rx="1"/><rect x="0" y="9" width="7" height="7" rx="1"/><rect x="9" y="9" width="7" height="7" rx="1"/></svg>
+            </button>
+            <button class="shop-toolbar__view-btn active" data-cols="3" title="3 columns">
+              <svg width="16" height="16" viewBox="0 0 16 16"><rect x="0" y="0" width="4" height="7" rx="1"/><rect x="6" y="0" width="4" height="7" rx="1"/><rect x="12" y="0" width="4" height="7" rx="1"/><rect x="0" y="9" width="4" height="7" rx="1"/><rect x="6" y="9" width="4" height="7" rx="1"/><rect x="12" y="9" width="4" height="7" rx="1"/></svg>
+            </button>
+            <button class="shop-toolbar__view-btn" data-cols="4" title="4 columns">
+              <svg width="16" height="16" viewBox="0 0 16 16"><rect x="0" y="0" width="3" height="7" rx=".5"/><rect x="4.3" y="0" width="3" height="7" rx=".5"/><rect x="8.6" y="0" width="3" height="7" rx=".5"/><rect x="13" y="0" width="3" height="7" rx=".5"/><rect x="0" y="9" width="3" height="7" rx=".5"/><rect x="4.3" y="9" width="3" height="7" rx=".5"/><rect x="8.6" y="9" width="3" height="7" rx=".5"/><rect x="13" y="9" width="3" height="7" rx=".5"/></svg>
+            </button>
+          </div>
         </div>
       </div>
 
-      <!-- Filter Bar -->
-      <div class="filter-bar">
-        <div class="filter-bar__filters">
-          <span class="filter-pill active">All</span>
-          <span class="filter-pill">Body Perfumes</span>
-          <span class="filter-pill">SB Parfum</span>
-          <span class="filter-pill">Secretscent</span>
-          <span class="filter-pill">Blast Sports</span>
-          <span class="filter-pill">Home &amp; Car</span>
+      <!-- Main layout: sidebar + grid -->
+      <div class="shop-layout">
+
+        <!-- Sidebar Filters -->
+        <aside class="shop-sidebar" id="shopSidebar">
+          <div class="shop-sidebar__header">
+            <h3>Filters</h3>
+            <button class="shop-sidebar__close" id="sidebarClose">&times;</button>
+          </div>
+
+          <!-- Collection -->
+          <div class="shop-filter-group" data-open="true">
+            <button class="shop-filter-group__toggle">
+              Collection
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="shop-filter-group__body">
+              <label class="shop-filter-check"><input type="checkbox" checked> <span>All</span></label>
+              <label class="shop-filter-check"><input type="checkbox"> <span>Luscious</span></label>
+              <label class="shop-filter-check"><input type="checkbox"> <span>Eternal</span></label>
+              <label class="shop-filter-check"><input type="checkbox"> <span>SB Parfum</span></label>
+              <label class="shop-filter-check"><input type="checkbox"> <span>Blast Sports</span></label>
+              <label class="shop-filter-check"><input type="checkbox"> <span>Home &amp; Car</span></label>
+              <label class="shop-filter-check"><input type="checkbox"> <span>Secretscent</span></label>
+            </div>
+          </div>
+
+          <!-- Price Range -->
+          <div class="shop-filter-group" data-open="true">
+            <button class="shop-filter-group__toggle">
+              Price (RM)
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="shop-filter-group__body">
+              <div class="shop-filter-price">
+                <input type="number" class="shop-filter-price__input" placeholder="0" min="0">
+                <span class="shop-filter-price__sep">—</span>
+                <input type="number" class="shop-filter-price__input" placeholder="200" min="0">
+              </div>
+            </div>
+          </div>
+
+          <!-- Availability -->
+          <div class="shop-filter-group" data-open="true">
+            <button class="shop-filter-group__toggle">
+              Availability
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="shop-filter-group__body">
+              <label class="shop-filter-check"><input type="checkbox" checked> <span>In Stock</span></label>
+              <label class="shop-filter-check"><input type="checkbox"> <span>Out of Stock</span></label>
+            </div>
+          </div>
+
+          <!-- Scent Family -->
+          <div class="shop-filter-group" data-open="false">
+            <button class="shop-filter-group__toggle">
+              Scent Family
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="shop-filter-group__body">
+              <label class="shop-filter-check"><input type="checkbox"> <span>Floral</span></label>
+              <label class="shop-filter-check"><input type="checkbox"> <span>Woody</span></label>
+              <label class="shop-filter-check"><input type="checkbox"> <span>Oriental</span></label>
+              <label class="shop-filter-check"><input type="checkbox"> <span>Fresh</span></label>
+              <label class="shop-filter-check"><input type="checkbox"> <span>Citrus</span></label>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Sidebar Overlay (mobile) -->
+        <div class="shop-sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Product Grid -->
+        <div class="shop-grid-wrap">
+          <div class="shop-grid" id="shopGrid">
+
+            <a href="product.html" class="sp-card">
+              <div class="sp-card__img">
+                <img src="assets/collection product/luscious.png" alt="Hush Lush">
+                <span class="sp-card__badge">Bestseller</span>
+                <div class="sp-card__actions">
+                  <button class="sp-card__quick">Quick View</button>
+                </div>
+              </div>
+              <div class="sp-card__info">
+                <p class="sp-card__collection">Luscious Collection</p>
+                <h3 class="sp-card__name">Hush Lush</h3>
+                <p class="sp-card__notes">Floral · Citrus · Musk</p>
+                <div class="sp-card__pricing">
+                  <span class="sp-card__sale">RM 39.90</span>
+                  <span class="sp-card__orig">RM 45.90</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product.html" class="sp-card">
+              <div class="sp-card__img">
+                <img src="assets/collection product/luscious.png" alt="Velvet Rose">
+                <div class="sp-card__actions">
+                  <button class="sp-card__quick">Quick View</button>
+                </div>
+              </div>
+              <div class="sp-card__info">
+                <p class="sp-card__collection">Luscious Collection</p>
+                <h3 class="sp-card__name">Velvet Rose</h3>
+                <p class="sp-card__notes">Rose · Amber · Vanilla</p>
+                <div class="sp-card__pricing">
+                  <span class="sp-card__price">RM 45.90</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product.html" class="sp-card">
+              <div class="sp-card__img">
+                <img src="assets/collection product/eternal.png" alt="Midnight Oud">
+                <span class="sp-card__badge sp-card__badge--dark">New</span>
+                <div class="sp-card__actions">
+                  <button class="sp-card__quick">Quick View</button>
+                </div>
+              </div>
+              <div class="sp-card__info">
+                <p class="sp-card__collection">Eternal Collection</p>
+                <h3 class="sp-card__name">Midnight Oud</h3>
+                <p class="sp-card__notes">Oud · Saffron · Leather</p>
+                <div class="sp-card__pricing">
+                  <span class="sp-card__price">RM 59.90</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product.html" class="sp-card">
+              <div class="sp-card__img">
+                <img src="assets/collection product/blast.png" alt="Ocean Breeze">
+                <div class="sp-card__actions">
+                  <button class="sp-card__quick">Quick View</button>
+                </div>
+              </div>
+              <div class="sp-card__info">
+                <p class="sp-card__collection">Blast Sports</p>
+                <h3 class="sp-card__name">Ocean Breeze</h3>
+                <p class="sp-card__notes">Aquatic · Citrus · Wood</p>
+                <div class="sp-card__pricing">
+                  <span class="sp-card__sale">RM 34.90</span>
+                  <span class="sp-card__orig">RM 39.90</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product.html" class="sp-card">
+              <div class="sp-card__img">
+                <img src="assets/collection product/luscious.png" alt="Sweet Cherry">
+                <span class="sp-card__badge">Bestseller</span>
+                <div class="sp-card__actions">
+                  <button class="sp-card__quick">Quick View</button>
+                </div>
+              </div>
+              <div class="sp-card__info">
+                <p class="sp-card__collection">SB Parfum</p>
+                <h3 class="sp-card__name">Sweet Cherry</h3>
+                <p class="sp-card__notes">Cherry · Almond · Tonka</p>
+                <div class="sp-card__pricing">
+                  <span class="sp-card__sale">RM 59.90</span>
+                  <span class="sp-card__orig">RM 69.90</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product.html" class="sp-card">
+              <div class="sp-card__img">
+                <img src="assets/collection product/eternal.png" alt="Golden Dusk">
+                <div class="sp-card__actions">
+                  <button class="sp-card__quick">Quick View</button>
+                </div>
+              </div>
+              <div class="sp-card__info">
+                <p class="sp-card__collection">Eternal Collection</p>
+                <h3 class="sp-card__name">Golden Dusk</h3>
+                <p class="sp-card__notes">Amber · Incense · Patchouli</p>
+                <div class="sp-card__pricing">
+                  <span class="sp-card__price">RM 59.90</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product.html" class="sp-card">
+              <div class="sp-card__img">
+                <img src="assets/collection product/luscious.png" alt="Tropical Kiss">
+                <div class="sp-card__actions">
+                  <button class="sp-card__quick">Quick View</button>
+                </div>
+              </div>
+              <div class="sp-card__info">
+                <p class="sp-card__collection">Luscious Collection</p>
+                <h3 class="sp-card__name">Tropical Kiss</h3>
+                <p class="sp-card__notes">Coconut · Jasmine · Sandalwood</p>
+                <div class="sp-card__pricing">
+                  <span class="sp-card__price">RM 45.90</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product.html" class="sp-card">
+              <div class="sp-card__img">
+                <img src="assets/collection product/home & car.png" alt="Fresh Linen">
+                <span class="sp-card__badge sp-card__badge--dark">Home</span>
+                <div class="sp-card__actions">
+                  <button class="sp-card__quick">Quick View</button>
+                </div>
+              </div>
+              <div class="sp-card__info">
+                <p class="sp-card__collection">Home &amp; Car</p>
+                <h3 class="sp-card__name">Fresh Linen</h3>
+                <p class="sp-card__notes">Cotton · Clean · Aqua</p>
+                <div class="sp-card__pricing">
+                  <span class="sp-card__price">RM 19.90</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product.html" class="sp-card">
+              <div class="sp-card__img">
+                <img src="assets/collection product/eternal.png" alt="Dark Phantom">
+                <div class="sp-card__actions">
+                  <button class="sp-card__quick">Quick View</button>
+                </div>
+              </div>
+              <div class="sp-card__info">
+                <p class="sp-card__collection">Secretscent</p>
+                <h3 class="sp-card__name">Dark Phantom</h3>
+                <p class="sp-card__notes">Leather · Tobacco · Oud</p>
+                <div class="sp-card__pricing">
+                  <span class="sp-card__sale">RM 49.90</span>
+                  <span class="sp-card__orig">RM 55.90</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product.html" class="sp-card">
+              <div class="sp-card__img">
+                <img src="assets/collection product/luscious.png" alt="Crimson Mist">
+                <span class="sp-card__badge">Sale</span>
+                <div class="sp-card__actions">
+                  <button class="sp-card__quick">Quick View</button>
+                </div>
+              </div>
+              <div class="sp-card__info">
+                <p class="sp-card__collection">Luscious Collection</p>
+                <h3 class="sp-card__name">Crimson Mist</h3>
+                <p class="sp-card__notes">Berry · Rose · Musk</p>
+                <div class="sp-card__pricing">
+                  <span class="sp-card__sale">RM 35.90</span>
+                  <span class="sp-card__orig">RM 45.90</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product.html" class="sp-card">
+              <div class="sp-card__img">
+                <img src="assets/collection product/eternal.png" alt="Cedar Woods">
+                <div class="sp-card__actions">
+                  <button class="sp-card__quick">Quick View</button>
+                </div>
+              </div>
+              <div class="sp-card__info">
+                <p class="sp-card__collection">Eternal Collection</p>
+                <h3 class="sp-card__name">Cedar Woods</h3>
+                <p class="sp-card__notes">Cedar · Vetiver · Bergamot</p>
+                <div class="sp-card__pricing">
+                  <span class="sp-card__price">RM 59.90</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product.html" class="sp-card sp-card--soldout">
+              <div class="sp-card__img">
+                <img src="assets/collection product/luscious.png" alt="White Jasmine">
+                <span class="sp-card__badge sp-card__badge--soldout">Sold Out</span>
+                <div class="sp-card__actions">
+                  <button class="sp-card__quick">Quick View</button>
+                </div>
+              </div>
+              <div class="sp-card__info">
+                <p class="sp-card__collection">Secretscent</p>
+                <h3 class="sp-card__name">White Jasmine</h3>
+                <p class="sp-card__notes">Jasmine · White Tea · Peony</p>
+                <div class="sp-card__pricing">
+                  <span class="sp-card__price">RM 55.90</span>
+                </div>
+              </div>
+            </a>
+
+          </div>
+
+          <!-- Pagination -->
+          <div class="shop-pagination">
+            <button class="shop-pagination__btn shop-pagination__btn--prev" disabled>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <span class="shop-pagination__btn shop-pagination__btn--active">1</span>
+            <span class="shop-pagination__btn">2</span>
+            <span class="shop-pagination__btn">3</span>
+            <span class="shop-pagination__dots">…</span>
+            <span class="shop-pagination__btn">12</span>
+            <button class="shop-pagination__btn shop-pagination__btn--next">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+
         </div>
-        <div class="filter-bar__sort">
-          <span>Sort by:</span>
-          <select>
-            <option>Featured</option>
-            <option>Price: Low to High</option>
-            <option>Price: High to Low</option>
-            <option>Newest</option>
-            <option>Bestselling</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Product Grid -->
-      <div class="grid grid-3" style="margin-bottom: var(--space-2xl);">
-
-        <!-- Product 1 -->
-        <a href="product.html" class="product-card animate-on-scroll delay-1">
-          <div class="product-card__image">
-            <img src="assets/visuals/SB VISUAL 2.png" alt="Hush Lush">
-            <span class="product-card__badge">Bestseller</span>
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__category">Luscious Collection</p>
-            <h3 class="product-card__name">Hush Lush</h3>
-            <p class="product-card__notes">Floral · Citrus · Musk</p>
-            <p class="product-card__price">RM 45.90</p>
-            <span class="product-card__cta">Shop Now →</span>
-          </div>
-        </a>
-
-        <!-- Product 2 -->
-        <a href="product.html" class="product-card animate-on-scroll delay-2">
-          <div class="product-card__image">
-            <img src="assets/visuals/SB VISUAL 2.png" alt="Velvet Rose">
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__category">Luscious Collection</p>
-            <h3 class="product-card__name">Velvet Rose</h3>
-            <p class="product-card__notes">Rose · Amber · Vanilla</p>
-            <p class="product-card__price">RM 45.90</p>
-            <span class="product-card__cta">Shop Now →</span>
-          </div>
-        </a>
-
-        <!-- Product 3 -->
-        <a href="product.html" class="product-card animate-on-scroll delay-3">
-          <div class="product-card__image">
-            <img src="assets/visuals/SB VISUAL 2.png" alt="Midnight Oud">
-            <span class="product-card__badge badge--black">New</span>
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__category">Eternal Collection</p>
-            <h3 class="product-card__name">Midnight Oud</h3>
-            <p class="product-card__notes">Oud · Saffron · Leather</p>
-            <p class="product-card__price">RM 59.90</p>
-            <span class="product-card__cta">Shop Now →</span>
-          </div>
-        </a>
-
-        <!-- Product 4 -->
-        <a href="product.html" class="product-card animate-on-scroll delay-1">
-          <div class="product-card__image">
-            <img src="assets/visuals/SB VISUAL 2.png" alt="Ocean Breeze">
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__category">Blast Sports</p>
-            <h3 class="product-card__name">Ocean Breeze</h3>
-            <p class="product-card__notes">Aquatic · Citrus · Wood</p>
-            <p class="product-card__price">RM 39.90</p>
-            <span class="product-card__cta">Shop Now →</span>
-          </div>
-        </a>
-
-        <!-- Product 5 -->
-        <a href="product.html" class="product-card animate-on-scroll delay-2">
-          <div class="product-card__image">
-            <img src="assets/visuals/SB VISUAL 2.png" alt="Sweet Cherry">
-            <span class="product-card__badge">Bestseller</span>
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__category">SB Parfum</p>
-            <h3 class="product-card__name">Sweet Cherry</h3>
-            <p class="product-card__notes">Cherry · Almond · Tonka</p>
-            <p class="product-card__price">RM 69.90</p>
-            <span class="product-card__cta">Shop Now →</span>
-          </div>
-        </a>
-
-        <!-- Product 6 -->
-        <a href="product.html" class="product-card animate-on-scroll delay-3">
-          <div class="product-card__image">
-            <img src="assets/visuals/SB VISUAL 2.png" alt="Golden Dusk">
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__category">Eternal Collection</p>
-            <h3 class="product-card__name">Golden Dusk</h3>
-            <p class="product-card__notes">Amber · Incense · Patchouli</p>
-            <p class="product-card__price">RM 59.90</p>
-            <span class="product-card__cta">Shop Now →</span>
-          </div>
-        </a>
-
-        <!-- Product 7 -->
-        <a href="product.html" class="product-card animate-on-scroll delay-1">
-          <div class="product-card__image">
-            <img src="assets/visuals/SB VISUAL 2.png" alt="Tropical Kiss">
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__category">Luscious Collection</p>
-            <h3 class="product-card__name">Tropical Kiss</h3>
-            <p class="product-card__notes">Coconut · Jasmine · Sandalwood</p>
-            <p class="product-card__price">RM 45.90</p>
-            <span class="product-card__cta">Shop Now →</span>
-          </div>
-        </a>
-
-        <!-- Product 8 -->
-        <a href="product.html" class="product-card animate-on-scroll delay-2">
-          <div class="product-card__image">
-            <img src="assets/visuals/SB VISUAL 5.png" alt="Fresh Linen">
-            <span class="product-card__badge badge--black">Home</span>
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__category">SB Freshener</p>
-            <h3 class="product-card__name">Fresh Linen</h3>
-            <p class="product-card__notes">Cotton · Clean · Aqua</p>
-            <p class="product-card__price">RM 19.90</p>
-            <span class="product-card__cta">Shop Now →</span>
-          </div>
-        </a>
-
-        <!-- Product 9 -->
-        <a href="product.html" class="product-card animate-on-scroll delay-3">
-          <div class="product-card__image">
-            <img src="assets/visuals/SB VISUAL 2.png" alt="Dark Phantom">
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__category">Secretscent</p>
-            <h3 class="product-card__name">Dark Phantom</h3>
-            <p class="product-card__notes">Leather · Tobacco · Oud</p>
-            <p class="product-card__price">RM 55.90</p>
-            <span class="product-card__cta">Shop Now →</span>
-          </div>
-        </a>
-
-      </div>
-
-      <!-- Pagination -->
-      <div class="pagination">
-        <span class="pagination__btn">‹</span>
-        <span class="pagination__btn active">1</span>
-        <span class="pagination__btn">2</span>
-        <span class="pagination__btn">3</span>
-        <span class="pagination__btn">4</span>
-        <span class="pagination__btn">…</span>
-        <span class="pagination__btn">12</span>
-        <span class="pagination__btn">›</span>
       </div>
 
     </div>
