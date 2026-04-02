@@ -3410,20 +3410,19 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
 /* ============================================================
    30. SOCIAL MEDIA / TIKTOK SECTION
    ============================================================ */
-.tiktok-section {
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: var(--space-3xl);
-  align-items: center;
-}
-
-.tiktok-section__content {
-  text-align: left;
+.tiktok-section__header {
+  margin-bottom: var(--space-2xl);
 }
 
 .tiktok-section__stats {
   display: flex;
   gap: var(--space-xl);
+}
+
+.tiktok-section__embeds {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
 .tiktok-stat {
@@ -3484,7 +3483,6 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
-  max-height: 520px;
   min-height: 400px;
 }
 
@@ -3493,16 +3491,14 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
 }
 
 @media (max-width: 768px) {
-  .tiktok-section {
+  .tiktok-section__embeds {
     grid-template-columns: 1fr;
-    gap: var(--space-xl);
+    gap: 16px;
   }
   .tiktok-section__stats {
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--space-md);
-  }
-  .tiktok-section__embed {
-    max-height: 480px;
   }
 }
 
