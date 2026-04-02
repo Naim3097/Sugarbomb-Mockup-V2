@@ -1960,13 +1960,6 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
   color: #fff;
 }
 
-.sp-card__atc {
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  color: inherit;
-}
-
 .sp-card--soldout .sp-card__img::after {
   content: '';
   position: absolute;
