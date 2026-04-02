@@ -1876,6 +1876,7 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
   text-decoration: none;
   color: inherit;
   position: relative;
+  cursor: pointer;
 }
 
 .sp-card__img {

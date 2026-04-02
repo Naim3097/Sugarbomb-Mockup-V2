@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBrandsCounter();
   initVideoStatCounters();
   initShopPage();
+  initShopCardLinks();
   initExpertiseStars();
   initScrollSlides();
   initShuffleGrid();
@@ -979,6 +980,16 @@ function initShopPage() {
       btn.classList.add('active');
       var cols = btn.getAttribute('data-cols');
       shopGrid.setAttribute('data-cols', cols);
+    });
+  });
+}
+
+/* --- Shop Card Links (div cards with data-href) --- */
+function initShopCardLinks() {
+  document.querySelectorAll('.sp-card[data-href]').forEach(function(card) {
+    card.addEventListener('click', function(e) {
+      if (e.target.closest('.sp-card__atc')) return;
+      window.location.href = card.getAttribute('data-href');
     });
   });
 }
