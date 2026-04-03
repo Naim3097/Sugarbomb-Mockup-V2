@@ -4911,6 +4911,27 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
   background: rgba(255, 255, 255, 0.08);
 }
 
+/* App mockup image */
+.app-mockup-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-mockup-img {
+  max-width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  animation: appFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes appFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
 /* ============================================================
    48. COUNTER NUMBER
    ============================================================ */
