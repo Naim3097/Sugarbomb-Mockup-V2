@@ -1205,6 +1205,12 @@ function initCardDeck() {
     });
   });
 
+  // Arrow clicks
+  var prevBtn = deck.querySelector('.card-deck__arrow--prev');
+  var nextBtn = deck.querySelector('.card-deck__arrow--next');
+  if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
   // Arrow key support
   deck.setAttribute('tabindex', '0');
   deck.addEventListener('keydown', function(e) {
