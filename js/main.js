@@ -1212,20 +1212,37 @@ function initCardDeck() {
     else if (e.key === 'ArrowLeft') goTo(current - 1);
   });
 
-  // Auto-play every 5s
-  var autoTimer = setInterval(function() {
-    var next = (current + 1) % total;
-    goTo(next);
-  }, 5000);
+  var isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-  // Pause auto on hover
-  deck.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
-  deck.addEventListener('mouseleave', function() {
-    autoTimer = setInterval(function() {
+  // Touch swipe for mobile
+  var touchStartX = 0;
+  deck.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  deck.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0) goTo(current + 1);
+      else goTo(current - 1);
+    }
+  }, { passive: true });
+
+  // Auto-play only on desktop
+  if (!isMobile) {
+    var autoTimer = setInterval(function() {
       var next = (current + 1) % total;
       goTo(next);
     }, 5000);
-  });
+
+    deck.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
+    deck.addEventListener('mouseleave', function() {
+      autoTimer = setInterval(function() {
+        var next = (current + 1) % total;
+        goTo(next);
+      }, 5000);
+    });
+  }
 }
 
 
