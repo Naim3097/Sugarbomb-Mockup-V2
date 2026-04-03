@@ -1205,35 +1205,12 @@ function initCardDeck() {
     });
   });
 
-  // Scroll-driven: detect wheel inside section
-  deck.addEventListener('wheel', function(e) {
-    e.preventDefault();
-    if (isAnimating) return;
-
-    if (e.deltaY > 0) {
-      goTo(current + 1);
-    } else if (e.deltaY < 0) {
-      goTo(current - 1);
-    }
-  }, { passive: false });
-
-  // Touch swipe support
-  var touchStartX = 0;
-  var touchStartY = 0;
-
-  deck.addEventListener('touchstart', function(e) {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-  }, { passive: true });
-
-  deck.addEventListener('touchend', function(e) {
-    var dx = e.changedTouches[0].clientX - touchStartX;
-    var dy = e.changedTouches[0].clientY - touchStartY;
-    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
-      if (dx < 0) goTo(current + 1);
-      else goTo(current - 1);
-    }
-  }, { passive: true });
+  // Arrow key support
+  deck.setAttribute('tabindex', '0');
+  deck.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight') goTo(current + 1);
+    else if (e.key === 'ArrowLeft') goTo(current - 1);
+  });
 
   // Auto-play every 5s
   var autoTimer = setInterval(function() {
