@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luscious Collection — SugarBomb Group</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home2.css">
+  <link rel="stylesheet" href="css/collection.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logos/LOGO SUGAR BOMB RED.png" type="image/png">
+</head>
+<body class="collection-body">
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logos/LOGO SUGAR BOMB WHITE.png" alt="SugarBomb" class="logo-light">
+        <img src="assets/logos/LOGO SUGAR BOMB RED.png" alt="SugarBomb" class="logo-dark">
+      </a>
+      <div class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="home2.html" class="nav__link">Home 2</a>
+        <div class="nav__dropdown">
+          <a href="#" class="nav__link nav__link--has-dropdown active">Collections</a>
+          <div class="nav__dropdown-menu">
+            <a href="collection-luscious.html" class="nav__dropdown-item">Luscious</a>
+            <a href="collection-eternal.html" class="nav__dropdown-item">Eternal</a>
+            <a href="collection-blast.html" class="nav__dropdown-item">Blast Sports</a>
+            <a href="shop.html" class="nav__dropdown-item">Shop All</a>
+          </div>
+        </div>
+        <a href="shop.html" class="nav__link">Shop</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </div>
+      <div class="nav__actions">
+        <span class="nav__search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 5 5"/></svg></span>
+        <a href="cart.html" class="nav__cart">
+          <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="nav__cart-count">0</span>
+        </a>
+        <div class="nav__hamburger">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="nav__mobile-backdrop"></div>
+  <div class="nav__mobile">
+    <span class="nav__mobile-close">&times;</span>
+    <a href="index.html">Home</a>
+    <a href="home2.html">Home 2</a>
+    <a href="collection-luscious.html">Luscious</a>
+    <a href="collection-eternal.html">Eternal</a>
+    <a href="collection-blast.html">Blast Sports</a>
+    <a href="shop.html">Shop</a>
+    <a href="contact.html">Contact</a>
+    <a href="cart.html">Cart</a>
+  </div>
+
+  <!-- ============ COLLECTION HERO ============ -->
+  <section class="coll-hero">
+    <div class="coll-hero__bg">
+      <img src="assets/visuals/SB VISUAL 1.png" alt="Luscious Collection">
+    </div>
+    <div class="coll-hero__overlay"></div>
+    <div class="coll-hero__content">
+      <span class="coll-hero__tag">Collection</span>
+      <h1 class="coll-hero__title">Luscious</h1>
+      <p class="coll-hero__desc">Irresistibly sweet. Effortlessly bold. Fragrances that wrap you in warmth and leave a lasting impression.</p>
+    </div>
+  </section>
+
+  <!-- ============ FILTER BAR ============ -->
+  <div class="coll-toolbar">
+    <div class="coll-toolbar__inner">
+      <span class="coll-toolbar__count">Showing 6 products</span>
+      <div class="coll-toolbar__sort">
+        <label for="collSort">Sort by</label>
+        <select id="collSort">
+          <option>Featured</option>
+          <option>Price: Low to High</option>
+          <option>Price: High to Low</option>
+          <option>Newest</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PRODUCT GRID ============ -->
+  <section class="coll-grid">
+    <div class="coll-grid__inner">
+
+      <a href="product.html" class="coll-card">
+        <div class="coll-card__badge">New</div>
+        <div class="coll-card__img">
+          <img src="assets/collection product/luscious.png" alt="Hush Lush">
+        </div>
+        <div class="coll-card__info">
+          <h3 class="coll-card__name">Hush Lush</h3>
+          <span class="coll-card__price">RM 45.90</span>
+        </div>
+      </a>
+
+      <a href="product.html" class="coll-card">
+        <div class="coll-card__img">
+          <img src="assets/collection product/luscious.png" alt="Rouge Velvet">
+        </div>
+        <div class="coll-card__info">
+          <h3 class="coll-card__name">Rouge Velvet</h3>
+          <span class="coll-card__price">RM 45.90</span>
+        </div>
+      </a>
+
+      <a href="product.html" class="coll-card">
+        <div class="coll-card__img">
+          <img src="assets/collection product/luscious.png" alt="Pink Paradise">
+        </div>
+        <div class="coll-card__info">
+          <h3 class="coll-card__name">Pink Paradise</h3>
+          <span class="coll-card__price">RM 45.90</span>
+        </div>
+      </a>
+
+      <a href="product.html" class="coll-card">
+        <div class="coll-card__img">
+          <img src="assets/collection product/luscious.png" alt="Sweet Jasmine">
+        </div>
+        <div class="coll-card__info">
+          <h3 class="coll-card__name">Sweet Jasmine</h3>
+          <span class="coll-card__price">RM 45.90</span>
+        </div>
+      </a>
+
+      <a href="product.html" class="coll-card">
+        <div class="coll-card__img">
+          <img src="assets/collection product/luscious.png" alt="Berry Bliss">
+        </div>
+        <div class="coll-card__info">
+          <h3 class="coll-card__name">Berry Bliss</h3>
+          <span class="coll-card__price">RM 45.90</span>
+        </div>
+      </a>
+
+      <a href="product.html" class="coll-card">
+        <div class="coll-card__badge">New</div>
+        <div class="coll-card__img">
+          <img src="assets/collection product/luscious.png" alt="Luscious Gift Set">
+        </div>
+        <div class="coll-card__info">
+          <h3 class="coll-card__name">Luscious Gift Set</h3>
+          <span class="coll-card__price">RM 129.90</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ COLLECTION STORY BANNER ============ -->
+  <section class="coll-story">
+    <div class="coll-story__img">
+      <img src="assets/visuals/SB VISUAL 5.png" alt="The Luscious Story">
+    </div>
+    <div class="coll-story__content">
+      <span class="coll-story__label">The Story</span>
+      <h2 class="coll-story__title">A Love Letter to Sweetness</h2>
+      <p class="coll-story__desc">Born from the lush tropical gardens of Malaysia, the Luscious collection captures the intoxicating sweetness of nature's finest blooms. Each fragrance is crafted to evoke warmth, femininity, and an irresistible allure.</p>
+      <a href="shop.html" class="coll-story__link">Shop the Collection</a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo">
+            <img src="assets/logos/LOGO SUGAR BOMB WHITE.png" alt="SugarBomb">
+          </div>
+          <p class="footer__brand-text">At SugarBomb, we do not just create scents; we create experiences that linger. Founded in 2015, we are Malaysia's leading fragrance ecosystem.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Collections</h4>
+          <a href="collection-luscious.html" class="footer__link">Luscious</a>
+          <a href="collection-eternal.html" class="footer__link">Eternal</a>
+          <a href="collection-blast.html" class="footer__link">Blast Sports</a>
+          <a href="shop.html" class="footer__link">All Products</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Company</h4>
+          <a href="about.html" class="footer__link">Our Story</a>
+          <a href="expertise.html" class="footer__link">Expertise</a>
+          <a href="brands.html" class="footer__link">Our Brands</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Connect</h4>
+          <a href="#" class="footer__link">Instagram</a>
+          <a href="#" class="footer__link">TikTok</a>
+          <a href="#" class="footer__link">Facebook</a>
+          <a href="#" class="footer__link">YouTube</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 SugarBomb Group. All rights reserved.</p>
+        <div class="footer__certs">
+          <span class="footer__cert">GMP Certified</span>
+          <span class="footer__cert">Halal Certified</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,471 @@
+/* ============================================================
+   COLLECTION PAGES — AMOUAGE-INSPIRED LAYOUT
+   ============================================================ */
+
+/* --- BODY --- */
+.collection-body {
+  background: #fff;
+  color: #0a0a0a;
+}
+
+/* ============================================================
+   NAV DROPDOWN — COLLECTION MENU
+   ============================================================ */
+.nav__dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav__link--has-dropdown {
+  cursor: pointer;
+  overflow: visible;
+  height: auto;
+}
+
+.nav__link--has-dropdown::before {
+  content: none;
+}
+
+/* Prevent the standard nav__link ::after underline-slide effect */
+.nav__link--has-dropdown.nav__link::after {
+  content: none !important;
+}
+
+/* Small chevron via a separate pseudo-element on the wrapper */
+.nav__dropdown::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 3.5px solid transparent;
+  border-right: 3.5px solid transparent;
+  border-top: 4px solid currentColor;
+  margin-left: -2px;
+  transition: transform 300ms;
+  align-self: center;
+  color: rgba(255,255,255,0.85);
+}
+
+.nav.scrolled .nav__dropdown::after {
+  color: var(--color-text-muted);
+}
+
+.nav--h2 .nav__dropdown::after {
+  color: rgba(255,255,255,0.85);
+}
+
+.nav--h2.nav--scrolled .nav__dropdown::after {
+  color: var(--color-text-muted);
+}
+
+.nav__dropdown:hover::after {
+  transform: rotate(180deg);
+}
+
+.nav__dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  min-width: 220px;
+  background: #f5f4f0;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              visibility 350ms;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+.nav__dropdown:hover .nav__dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav__dropdown-item {
+  display: block;
+  padding: 10px 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #333;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 250ms, padding-left 250ms;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.nav__dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.nav__dropdown-item:hover {
+  color: #0a0a0a;
+  padding-left: 6px;
+}
+
+/* Arrow indicator on dropdown trigger — Amouage uses underline on active */
+.nav__dropdown:hover .nav__link--has-dropdown {
+  color: var(--color-white);
+}
+
+.nav.scrolled .nav__dropdown:hover .nav__link--has-dropdown {
+  color: var(--color-black);
+}
+
+/* Underline on Collections when dropdown open */
+.nav__link--has-dropdown::after {
+  content: '' !important;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.nav__dropdown:hover .nav__link--has-dropdown::after {
+  transform: scaleX(1);
+}
+
+/* ============================================================
+   COLLECTION HERO — FULL-WIDTH IMAGE BANNER
+   ============================================================ */
+.coll-hero {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  min-height: 480px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.coll-hero__bg {
+  position: absolute;
+  inset: 0;
+}
+
+.coll-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coll-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.15) 40%, transparent 70%);
+  z-index: 1;
+}
+
+.coll-hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 var(--space-xl) 8vh;
+  max-width: 640px;
+}
+
+.coll-hero__tag {
+  display: inline-block;
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: var(--space-sm);
+}
+
+.coll-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: var(--space-md);
+}
+
+.coll-hero__desc {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.7);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   FILTER / SORT TOOLBAR
+   ============================================================ */
+.coll-toolbar {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.coll-toolbar__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 18px 6vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coll-toolbar__count {
+  font-size: 0.8125rem;
+  color: #888;
+  letter-spacing: 0.01em;
+}
+
+.coll-toolbar__sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.coll-toolbar__sort label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #666;
+}
+
+.coll-toolbar__sort select {
+  font-size: 0.8125rem;
+  font-family: inherit;
+  color: #0a0a0a;
+  border: 1px solid #d4d4d4;
+  padding: 8px 32px 8px 12px;
+  background: #fff url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23333' stroke-width='1.2'/%3E%3C/svg%3E") right 10px center no-repeat;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+/* ============================================================
+   PRODUCT GRID — 3 COLUMNS (AMOUAGE STYLE)
+   ============================================================ */
+.coll-grid {
+  padding: clamp(48px, 6vw, 80px) 6vw;
+}
+
+.coll-grid__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 3vw, 48px);
+}
+
+/* --- Product Card --- */
+.coll-card {
+  text-decoration: none;
+  color: #0a0a0a;
+  display: block;
+  position: relative;
+}
+
+.coll-card__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fff;
+  background: #0a0a0a;
+  padding: 5px 12px;
+}
+
+.coll-card__img {
+  aspect-ratio: 1 / 1;
+  background: #f5f5f5;
+  overflow: hidden;
+  margin-bottom: var(--space-md);
+}
+
+.coll-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 24px;
+  transition: transform 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.coll-card:hover .coll-card__img img {
+  transform: scale(1.06);
+}
+
+.coll-card__info {
+  text-align: center;
+}
+
+.coll-card__name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.coll-card__price {
+  font-size: 0.8125rem;
+  color: #777;
+}
+
+/* ============================================================
+   COLLECTION STORY — SPLIT LAYOUT (REUSE PATTERN)
+   ============================================================ */
+.coll-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 65vh;
+}
+
+.coll-story__img {
+  overflow: hidden;
+}
+
+.coll-story__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coll-story__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(48px, 6vw, 96px) clamp(32px, 5vw, 80px);
+  background: #f8f7f5;
+}
+
+.coll-story__label {
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #999;
+  margin-bottom: var(--space-lg);
+}
+
+.coll-story__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: var(--space-xl);
+}
+
+.coll-story__desc {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #555;
+  max-width: 480px;
+  margin-bottom: var(--space-xl);
+}
+
+.coll-story__link {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #0a0a0a;
+  text-decoration: none;
+  padding: 16px 48px;
+  border: 1px solid #0a0a0a;
+  transition: all 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  align-self: flex-start;
+}
+
+.coll-story__link:hover {
+  background: #0a0a0a;
+  color: #fff;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1023px) {
+  .coll-grid__inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .coll-story {
+    grid-template-columns: 1fr;
+  }
+
+  .coll-story__img {
+    height: 55vh;
+  }
+}
+
+@media (max-width: 639px) {
+  .coll-hero {
+    height: 60vh;
+    min-height: 380px;
+  }
+
+  .coll-hero__content {
+    padding: 0 var(--space-lg) 6vh;
+  }
+
+  .coll-toolbar__inner {
+    padding: 14px var(--space-lg);
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .coll-grid {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  .coll-grid__inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .coll-card__img {
+    padding: 12px;
+  }
+
+  .coll-card__name {
+    font-size: 0.6875rem;
+  }
+
+  .coll-card__price {
+    font-size: 0.75rem;
+  }
+
+  .coll-story__img {
+    height: 45vh;
+  }
+
+  .coll-story__content {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  /* Dropdown full width on mobile — handled by mobile nav instead */
+  .nav__dropdown-menu {
+    display: none !important;
+  }
+}
