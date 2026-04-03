@@ -4457,8 +4457,6 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: var(--space-sm);
-  margin-left: calc(-1 * var(--space-3xl));
-  margin-right: calc(-1 * var(--space-3xl));
 }
 
 .collection-card--flat {
@@ -4715,18 +4713,18 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
    43. KEY LOCATIONS — DOTTED MAP
    ============================================================ */
 .locations-section {
-  background: #0a0a0a url('../assets/map/map sb.png') no-repeat center center;
+  background: #0a0a0a url('../assets/map/map 2.jpg') no-repeat center center;
   background-size: cover;
   padding: 0;
   position: relative;
-  min-height: 560px;
+  min-height: 100vh;
 }
 
 .locations-overlay {
   width: 100%;
-  min-height: 560px;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   position: relative;
   z-index: 1;
@@ -4734,7 +4732,7 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
 
 .locations-content {
   text-align: center;
-  padding: var(--space-3xl) var(--space-lg);
+  padding: clamp(5rem, 12vw, 10rem) var(--space-lg) var(--space-3xl);
 }
 
 .locations-stats {
@@ -4777,10 +4775,10 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
 
 @media (max-width: 768px) {
   .locations-section {
-    min-height: 400px;
+    min-height: 100vh;
   }
   .locations-overlay {
-    min-height: 400px;
+    min-height: 100vh;
   }
   .locations-stats {
     gap: 2rem;
