@@ -4712,22 +4712,79 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
 }
 
 /* ============================================================
-   43. LOCATIONS HERO
+   43. KEY LOCATIONS — DOTTED MAP
    ============================================================ */
-.locations-hero {
+.locations-section {
+  background: #0a0a0a url('../assets/map/map sb.png') no-repeat center center;
+  background-size: cover;
+  padding: 0;
+  position: relative;
+  min-height: 560px;
+}
+
+.locations-overlay {
+  width: 100%;
+  min-height: 560px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-3xl);
-  text-align: left;
+  position: relative;
+  z-index: 1;
 }
 
-.locations-hero__count {
+.locations-content {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-lg);
+}
+
+.locations-stats {
+  display: flex;
+  justify-content: center;
+  gap: clamp(3rem, 8vw, 7rem);
+  margin-bottom: var(--space-xl);
+}
+
+.locations-stat {
+  text-align: center;
+}
+
+.locations-stat__number {
+  display: block;
   font-family: var(--font-display);
-  font-size: 10rem;
-  font-weight: 900;
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: var(--fw-black);
+  color: #fff;
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+
+.locations-stat__label {
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.locations-subtitle {
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 768px) {
+  .locations-section {
+    min-height: 400px;
+  }
+  .locations-overlay {
+    min-height: 400px;
+  }
+  .locations-stats {
+    gap: 2rem;
+  }
 }
 
 /* ============================================================
