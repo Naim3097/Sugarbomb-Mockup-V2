@@ -450,11 +450,22 @@
    ============================================================ */
 .h2-statement {
   padding: clamp(100px, 14vw, 200px) 6vw;
-  background: #0a0a0a;
+  background: #0a0a0a url('../assets/HOME 2/red-wavy-fabric-with-water-drops-macro-photography.jpg') center/cover no-repeat;
   text-align: center;
+  position: relative;
+}
+
+.h2-statement::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.55);
+  z-index: 0;
 }
 
 .h2-statement__inner {
+  position: relative;
+  z-index: 1;
   max-width: 800px;
   margin: 0 auto;
 }
