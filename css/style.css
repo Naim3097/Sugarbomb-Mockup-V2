@@ -4121,8 +4121,6 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
 .scroll-slides__cta {
   position: sticky;
   bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
   display: block;
   width: fit-content;
   margin: 0 auto;
@@ -4143,7 +4141,7 @@ h4, .h4 { font-size: 1.25rem; font-weight: var(--fw-medium); }
 
 .scroll-slides__cta:hover {
   opacity: 0.85;
-  transform: translateX(-50%) scale(1.04);
+  transform: scale(1.04);
 }
 
 /* ============================================================
